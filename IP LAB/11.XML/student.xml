@@ -1,0 +1,34 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="student.xsl"?>
+<college>
+	<student>
+		<rollno>1</rollno>
+		<name>vijay</name>
+		<branch>cse</branch>
+		<cgpa>8.8</cgpa>
+	</student>
+	<student>
+		<rollno>2</rollno>
+		<name>vk</name>
+		<branch>cse</branch>
+		<cgpa>8.1</cgpa>
+	</student>
+	<student>
+		<rollno>3</rollno>
+		<name>viji</name>
+		<branch>cse</branch>
+		<cgpa>9.8</cgpa>
+	</student>
+	<student>
+		<rollno>4</rollno>
+		<name>kumar</name>
+		<branch>cse</branch>
+		<cgpa>8.8</cgpa>
+	</student>
+	<student>
+		<rollno>5</rollno>
+		<name>vijay</name>
+		<branch>cse</branch>
+		<cgpa>8.8</cgpa>
+	</student>
+</college> 

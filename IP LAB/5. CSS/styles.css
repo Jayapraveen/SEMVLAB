@@ -1,0 +1,17 @@
+/* An external stylesheet */
+
+p
+{
+font-size:12pt;
+color:#336699
+}
+
+table
+{
+background-color:silver
+}
+
+.special
+{
+color:blue
+}

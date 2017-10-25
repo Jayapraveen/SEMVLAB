@@ -1,0 +1,68 @@
+<html>
+
+<head>
+
+<title>Job Registration Form</title>
+
+<script type = "text/javascript">
+
+function validate() 
+{
+	var name = document.forms["myForm"]["name"].value;
+	var uname = document.forms["myForm"]["uname"].value;
+	var passwd = document.forms["myForm"]["passwd"].value;
+
+if(name == "" || uname == "" || passwd == "") 
+	{
+  		alert("Name / user name / password must be filled out.");
+return false;
+}
+
+	var sex = document.forms["myForm"]["sex"].value;
+
+if(sex == "") 
+	{
+  		alert("Choose Male / Female.");
+     return false;
+}
+}
+
+</script>
+</head>
+<body>
+<form name = "myForm" method = "post" action = "registration.jsp" onsubmit = "validate()">
+<h1>Job Registration Form</h1>
+Name :
+<input type = "text" name = "name" size = "30">
+<br /><br />
+Sex :
+<input type = "radio" name = "sex" value = "Male"> Male
+<input type = "radio" name = "sex" value = "Female"> Female
+<br /><br />
+Comments :
+<textarea rows = "5" cols = "20">
+</textarea>
+<br /><br />
+Country :
+<select name = "country">
+<option value = "India">India</option>
+<option value = "Sri Lanka">Sri Lanka</option>
+<option value = "Pakistan">Pakistan</option>
+</select>
+<br /><br />
+Upload Resume :
+<input type = "file" name = "resume">
+<br /><br />
+User Name :
+<input type = "text" name = "uname" size = "30">
+<br /><br />
+Password :
+<input type = "password" name = "passwd" size = "30">
+<br /><br />
+<input type = "checkbox" name = "agree"> I agree
+<br /><br />
+<input type = "submit" value = "Register User">
+<input type = "reset" vlaue = "Clear">
+</form>
+</body>
+</html>

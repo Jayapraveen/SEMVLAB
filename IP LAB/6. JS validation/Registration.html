@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>User Registration Form</title>
+<script type = "text/javascript">
+function validate() 
+{
+	var fname = document.forms["myForm"]["fname"].value;
+	var lname = document.forms["myForm"]["lname"].value;
+	var city = document.forms["myForm"]["city"].value;
+	var country = document.forms["myForm"]["country"].value;
+	var uname = document.forms["myForm"]["uname"].value;
+	var passwd = document.forms["myForm"]["passwd"].value;
+if(fname == "" || lname == "" || city == "" || country == "" || uname == "" || passwd =="") 
+	{
+alert("First name / last name / city / country / user name / password must be filled out.");
+return false;
+}
+	var pincode = document.forms["myForm"]["pincode"].value;
+	if(pincode.length != 6)
+	{
+  		alert("Pincode must be in 6 digit numeric value.");
+		return false;
+	}
+var state = document.forms["myForm"]["state"].value;
+	if(state.length != 2)
+	{
+  		alert("State must be in 2 characters.");
+     return false;
+	}
+	var uname = document.forms["myForm"]["uname"].value;
+	var atpos = uname.indexOf("@");
+	var dotpos = uname.lastIndexOf(".");
+if (atpos < 6 || dotpos < atpos + 2 || dotpos + 2 >= uname.length) 
+	{
+		alert("Not a valid username");
+	return false;
+}
+}
+
+</script>
+</head>
+
+<body>
+<form name = "myForm" action = "registration.jsp" method = "post" onsubmit = "validate()">
+<h1>
+User Registration Form
+</h1>
+First Name :
+<input type = "text" name = "fname" size = "30">
+<br /><br />
+Last Name :
+<input type = "text" name = "lname" size = "30">
+<br /><br />
+Address :
+<input type = "text" name = "address" size = "30">
+<br /><br />
+City :
+<input type = "text" name = "city" size = "30">
+<br /><br />
+State :
+<input type = "text" name = "state" size = "5" 
+maxlength = "2">
+<br /><br />
+Country :
+<input type = "text" name = "country" size = "30">
+<br /><br />
+Pincode :
+<input type = "text" name = "pincode" size = "10" 
+maxlength = "6">
+<br /><br />
+User Name :
+<input type = "text" name = "uname" size = "30">
+<br /><br />
+Password :
+<input type = "password" name = "passwd" size = "30">
+<br /><br />
+<input type = "submit" value = "Register User">
+<input type = "reset" vlaue = "Clear">
+</form>
+</body>
+<html>
