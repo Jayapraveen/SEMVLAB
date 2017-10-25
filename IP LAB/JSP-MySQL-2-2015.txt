@@ -1,0 +1,944 @@
+Rajalakshmi  Engineering  College
+Rajalakshmi Nagar,  Thandalam, Chennai-  602    105
+Department  of Computer Science and  Engineering
+
+
+
+
+
+JSP - MySQL Connectivity Hospital  Application User  Manual
+(Windows Operating   System)
+
+
+
+
+
+Prepared  by:
+B.BHUVANESWARAN Assistant  Professor  (SS) I CSE I REC bhuvaneswaran@rajalaltshmi.edu.in
+QUESTION
+
+
+
+Develop a web application for a Hospital Information System using JSP. Use cookies as part of the web application and perform appropriate validations. Document the functional requirements you are considering.
+
+Create relations using MYSQL given below enforcing primary key and foreign key constraints: DOCTOR (DID, DNAME, SPECIALIZATION)
+PATIENT (PID, PNAME, DOB, GENDER, BGROUP) CONSULTING (PID, DID, CONS_DATE, FEES)
+The primary keys are underlined.
+
+Develop a JSP application using database connectivity to list all records from the above relations and illustrate a join query and an update operation.
+MySQL
+
+
+
+1.   Open MySQL.
+
+2.   Create a database.
+
+mysql> create database hospital; Query OK, 1 row affected (0.06 sec)
+
+3.   Connect to the database.
+
+mysql> use hospital; Database changed
+
+4.   Create the following tables:
+
+mysql> create table doctor (did integer, dname varchar(20),
+-> specialization varchar(20), primary key (did)); Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table patient (pid integer, pname varchar(20),
+-> dob date, gender varchar(1), bgroup varchar(5),
+-> primary key (pid));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table consulting (pid integer references patient(pid),
+-> did integer references doctor(did), cons_date date,
+-> fees integer, primary key (pid, did, cons_date));
+Query OK, 0 rows affected (0.05 sec)
+
+5.   Display the tables.
+
+mysql> show tables;
++--------------------+
+| Tables_in_hospital |
++--------------------+
+| consulting        |
+| doctor             |
+| patient           |
++--------------------+
+3 rows in set (0.00 sec)
+6.   Display the table structure.
+
+mysql> describe doctor;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type       | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| did            | int(11)    | NO  | PRI | 0      |      |
+| dname          | varchar(20) | YES |    | NULL   |      |
+| specialization | varchar(20) | YES |    | NULL   |      |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> describe patient;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type       | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| pid    | int(11)    | NO  | PRI | 0      |      |
+| pname  | varchar(20) | YES |    | NULL   |      |
+| dob    | date       | YES |    | NULL   |      |
+| gender | varchar(1) | YES |    | NULL   |      |
+| bgroup | varchar(5) | YES |    | NULL   |      |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.05 sec)
+
+mysql> describe consulting;
++-----------+---------+------+-----+------------+-------+
+| Field     | Type   | Null | Key | Default   | Extra |
++-----------+---------+------+-----+------------+-------+
+| pid       | int(11) | NO  | PRI | 0         |      |
+| did       | int(11) | NO  | PRI | 0         |      |
+| cons_date | date   | NO  | PRI | 0000-00-00 |      |
+| fees      | int(11) | YES |    | NULL      |      |
++-----------+---------+------+-----+------------+-------+
+4 rows in set (0.01 sec)
+
+7.   Insert rows in the table.
+
+mysql> insert into doctor values (1, 'Abdul', 'ENT'); Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into doctor values (2, 'Badri', 'General'); Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into doctor values (3, 'Chandru', 'ENT'); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into doctor values (4, 'David', 'Neurology'); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into doctor values (5, 'Gopi', 'Diabetology'); Query OK, 1 row affected (0.02 sec)
+mysql> insert into patient values (1, 'Arun', '1987-11-12', 'M', 'A+'); Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into patient values (2, 'Babu', '1989-06-14', 'M', 'A-'); Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into patient values (3,'Chithra','1988-12-18','F','O+'); Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into consulting values (2, 1, '2014-04-21', 750); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into consulting values (1, 1, '2014-04-21', 750); Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into consulting values (3, 2, '2014-04-21', 500); Query OK, 1 row affected (0.03 sec)
+
+8.   Display the records from the table.
+
+mysql> select * from doctor;
++-----+---------+----------------+
+| did | dname   | specialization |
++-----+---------+----------------+
+|   1 | Abdul   | ENT           |
+|   2 | Badri   | General       |
+|   3 | Chandru | ENT           |
+|   4 | David   | Neurology     |
+|   5 | Gopi    | Diabetology   |
++-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from patient;
++-----+---------+------------+--------+--------+
+| pid | pname   | dob       | gender | bgroup |
++-----+---------+------------+--------+--------+
+|   1 | Arun    | 1987-11-12 | M     | A+    |
+|   2 | Babu    | 1989-06-14 | M     | A-    |
+|   3 | Chithra | 1988-12-18 | F     | O+    |
++-----+---------+------------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from consulting;
++-----+-----+------------+------+
+| pid | did | cons_date | fees |
++-----+-----+------------+------+
+|   1 |   1 | 2014-04-21 | 750 |
+|   2 |   1 | 2014-04-21 | 750 |
+|   3 |   2 | 2014-04-21 | 500 |
++-----+-----+------------+------+
+3 rows in set (0.00 sec)
+JSP – MySQL – Connectivity
+Displaying Individual Doctor Information
+
+1.   Open Eclipse
+
+2.   Select the Workspace.
+
+3.   Select File Æ New Æ Other.
+
+4.   Select Dynamic Web Project under Web.
+
+5.   Click Next.
+
+6.   Enter the Project name as Hospital.
+
+7.   Choose Target runtime as Apache Tomcat v7.0.
+
+8.   Click Next.
+
+9.   Click Next.
+
+10. Click Finish.
+
+11. Click Yes for Open Associated Perspective?
+
+12. Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+13. Right Click Æ New Æ HTML File.
+
+14. Enter the File name as IndDoctorInfo.
+
+15. Click Next.
+
+16. Click Finish.
+
+17. Change the title as Individual Doctor Info.
+
+18. Enter the following code inside the body tag:
+
+<form method="post" action="IndDoctorInfo.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Enter the Doctor Id.
+<input type="text" name="did">
+<input type="submit" value="Get Details">
+</form>
+19. Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+20. Right Click Æ New Æ JSP File.
+
+21. Enter the File name as IndDoctorInfo.
+
+22. Click Next.
+
+23. Click Finish.
+
+24. Change the title as Individual Doctor Info.
+
+25. Add the statement import=“java.sql.*” at the end of the page directive.
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+
+26. Enter the following code inside the body tag:
+
+<%
+Connection conn = null;
+PreparedStatement ps = null; ResultSet rs = null;
+%>
+
+27. Create a try...catch block inside the scriplet <% %>:
+
+try
+{
+}
+catch(Exception e)
+{
+out.println(e);
+}
+
+28. Enter the following statements inside the try block:
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+
+29. Select the file mysql-connector-java-5.1.29-bin.jar from your hard disk and press Ctrl+C to copy.
+
+30. Select Hospital in the Package Explorer.
+
+31. Select WebContent Æ WEB-INF Æ lib.
+
+32. Press Ctrl+V to paste.
+33. Continue entering the following statements inside the try block:
+
+ps = conn.prepareStatement("select * from doctor where did = ?"); String did = request.getParameter("did");
+ps.setString(1, did);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Individual Doctor Info</h3></center>");
+out.println("<hr>");
+out.println("Doctor Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Specialization :" + rs.getString(3));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+34. Right Click inside the Code Window of IndDoctorInfo.html.
+
+35. Select Run As Æ Run on Server.
+
+36. Select the Tomcat v7.0 Server at localhost.
+
+37. Click Next.
+
+38. Click Finish.
+
+39. It will open a browser window.
+
+40. Enter the Doctor Id. and click Get Details.
+
+41. The records will be displayed in browser window.
+
+42. The full source code for IndDoctorInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Individual Doctor Info</title>
+</head>
+<body>
+<form method="post" action="IndDoctorInfo.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Enter the Doctor Id.
+<input type="text" name="did">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+
+43. The full source code for IndDoctorInfo.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Individual Doctor Info</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select * from doctor where did = ?"); String did = request.getParameter("did");
+ps.setString(1, did);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Individual Doctor Info</h3></center>");
+out.println("<hr>");
+out.println("Doctor Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Specialization :" + rs.getString(3));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Displaying Individual Patient Information
+
+
+1.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as IndPatientInfo.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Individual Patient Info.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="IndPatientInfo.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Enter the patient Id.
+<input type="text" name="pid">
+<input type="submit" value="Get Details">
+</form>
+
+8.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as IndPatientInfo.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Simply copy the entire code available in the IndDoctorInfo.jsp file paste into the file IndPatientInfo.jsp.
+
+14. Change the title as Individual Patient Info.
+
+15. Do the following modifications in the code:
+
+ps = conn.prepareStatement("select * from patient where pid = ?"); String pid = request.getParameter("pid");
+ps.setString(1, pid);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Individual Patient Info</h3></center>");
+out.println("<hr>");
+out.println("Patient Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Date of Birth :" + rs.getString(3));
+out.println("<br>");
+out.println("Gender :" + rs.getString(4));
+out.println("<br>");
+out.println("Blood Group :" + rs.getString(5));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+16. Right Click inside the Code Window of IndPatientInfo.html.
+
+17. Select Run As Æ Run on Server.
+
+18. Select the Tomcat v7.0 Server at localhost.
+
+19. Click Next.
+
+20. Click Finish.
+
+21. It will open a browser window.
+
+22. Enter the Patient Id. and click Get Details.
+
+23. The records will be displayed in browser window.
+
+24. The full source code for IndPatientInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Individual Patient Info</title>
+</head>
+<body>
+<form method="post" action="IndPatientInfo.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Enter the patient Id.
+<input type="text" name="pid">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+
+25. The full source code for IndPatientInfo.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Individual Patient Info</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select * from patient where pid = ?");
+String pid = request.getParameter("pid");
+ps.setString(1, pid);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Individual Patient Info</h3></center>");
+out.println("<hr>");
+out.println("Patient Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Date of Birth :" + rs.getString(3));
+out.println("<br>");
+out.println("Gender :" + rs.getString(4));
+out.println("<br>");
+out.println("Blood Group :" + rs.getString(5));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Displaying Individual Consulting Information
+
+
+1.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as IndConsultingInfo.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Individual Consulting Info.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="IndConsultingInfo.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Enter the Doctor Id.
+<input type="text" name="did">
+<input type="submit" value="Get Details">
+</form>
+
+8.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as IndConsultingInfo.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Simply   copy   the   entire   code   available   in   the   IndDoctorInfo.jsp   file   paste   into   the   file
+IndConsultingInfo.jsp.
+
+14. Change the title as Individual Consulting Info.
+
+15. Do the following modifications in the code:
+
+ps = conn.prepareStatement("select c.pid, p.pname, c.cons_date, c.fees from consulting c, patient p where c.pid = p.pid and c.did = ?"); String did = request.getParameter("did");
+ps.setString(1, did);
+rs = ps.executeQuery();
+out.println("<center><h3>Individual Consulting Info</h3></center>");
+out.println("<hr>");
+while(rs.next())
+{
+out.println("Patient Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Date of Consulting :" + rs.getDate(3));
+out.println("<br>");
+out.println("Fees :" + rs.getInt(4));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+16. Right Click inside the Code Window of IndConsultingInfo.html.
+
+17. Select Run As Æ Run on Server.
+
+18. Select the Tomcat v7.0 Server at localhost.
+
+19. Click Next.
+
+20. Click Finish.
+
+21. It will open a browser window.
+
+22. Enter the Doctor Id. and click Get Details.
+
+23. The records will be displayed in browser window.
+
+24. The full source code for IndConsultingInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Individual Consulting Info</title>
+</head>
+<body>
+<form method="post" action="IndConsultingInfo.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Enter the Doctor Id.
+<input type="text" name="did">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+25. The full source code for IndConsultingInfo.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Individual Consulting Info</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select c.pid, p.pname, c.cons_date, c.fees from consulting c, patient p where c.pid = p.pid and c.did = ?");
+String did = request.getParameter("did");
+ps.setString(1, did);
+rs = ps.executeQuery();
+out.println("<center><h3>Individual Consulting Info</h3></center>");
+out.println("<hr>");
+while(rs.next())
+{
+out.println("Patient Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Date of Consulting :" + rs.getDate(3));
+out.println("<br>");
+out.println("Fees :" + rs.getInt(4));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Inserting Doctor Information
+
+
+1.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as DoctorInfoAdd.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Doctor Info - Add.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="DoctorInfoAdd.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Doctor Id.
+<input type="text" name="did">
+<br> Name
+<input type="text" name="dname">
+<br>
+Specialization
+<input type="text" name="specialization">
+<br>
+<input type="submit" value="Add Details">
+</form>
+
+8.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as DoctorInfoAdd.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Change the title as Doctor Info - Add.
+
+14. Add the statement import=“java.sql.*” at the end of the page directive.
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+15. Enter the following code inside the body tag:
+
+<%
+Connection conn = null;
+PreparedStatement ps = null;
+%>
+
+16. Create a try...catch block inside the scriplet <% %>:
+
+try
+{
+}
+catch(Exception e)
+{
+out.println(e);
+}
+
+17. Enter the following statements inside the try block:
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+
+18. Continue entering the following statements inside the try block:
+
+ps = conn.prepareStatement("insert into doctor values (?, ?, ?)"); String did = request.getParameter("did");
+String dname = request.getParameter("dname");
+String specialization = request.getParameter("specialization");
+ps.setString(1, did);
+ps.setString(2, dname); ps.setString(3, specialization); ps.executeUpdate();
+out.println("<center><h3>Doctor Details Added</h3></center>");
+ps.close();
+conn.close();
+
+19. Right Click inside the Code Window of DoctorInfoAdd.html.
+
+20. Select Run As Æ Run on Server.
+
+21. Select the Tomcat v7.0 Server at localhost.
+
+22. Click Next.
+
+23. Click Finish.
+
+24. It will open a browser window.
+
+25. Enter the Doctor Id., name, specialization and click Add Details.
+26. The records inserted in MySQL database.
+
+27. The full source code for DoctorInfoAdd.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Doctor Info - Add</title>
+</head>
+<body>
+<form method="post" action="DoctorInfoAdd.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Doctor Id.
+<input type="text" name="did">
+<br> Name
+<input type="text" name="dname">
+<br>
+Specialization
+<input type="text" name="specialization">
+<br>
+<input type="submit" value="Add Details">
+</form>
+</body>
+</html>
+
+28. The full source code for DoctorInfoAdd.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Doctor Info - Add</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("insert into doctor values (?, ?, ?)"); String did = request.getParameter("did");
+String dname = request.getParameter("dname");
+String specialization = request.getParameter("specialization");
+ps.setString(1, did); ps.setString(2, dname); ps.setString(3, specialization); ps.executeUpdate();
+out.println("<center><h3>Doctor Details Added</h3></center>");
+ps.close();
+conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Inserting Patient Information
+
+
+1.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as PatientInfoAdd.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Patient  Info - Add.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="PatientInfoAdd.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Patient Id.
+<input type="text" name="pid">
+<br> Name
+<input type="text" name="pname">
+<br>
+DOB
+<input type="text" name="dob">
+<br> Gender
+<input type="text" name="gender">
+<br>
+Blood Group
+<input type="text" name="bgroup">
+<br>
+<input type="submit" value="Add Details">
+</form>
+
+8.   Select Hospital Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as PatientInfoAdd.
+
+11. Click Next.
+
+12. Click Finish.
+13. Simply   copy   the   entire   code   available   in   the   DoctorInfoAdd.jsp   file   paste   into   the   file
+PatientInfoAdd.jsp.
+
+14. Change the title as Patient Info - Add.
+
+15. Do the following modifications in the code:
+
+ps = conn.prepareStatement("insert into patient values (?,?,?,?,?)"); String pid = request.getParameter("pid");
+String pname = request.getParameter("pname"); String dob = request.getParameter("dob");
+String gender = request.getParameter("gender");
+String bgroup = request.getParameter("bgroup");
+ps.setString(1, pid);
+ps.setString(2, pname); ps.setString(3, dob); ps.setString(4, gender); ps.setString(5, bgroup); ps.executeUpdate();
+out.println("<center><h3>Patient Details Added</h3></center>");
+ps.close();
+conn.close();
+
+16. Right Click inside the Code Window of PatientInfoAdd.html.
+
+17. Select Run As Æ Run on Server.
+
+18. Select the Tomcat v7.0 Server at localhost.
+
+19. Click Next.
+
+20. Click Finish.
+
+21. It will open a browser window.
+
+22. Enter the Patient Id., name, dob, gender, blood group and click Add Details.
+
+23. The records inserted in MySQL database.
+
+24. The full source code for PatientInfoAdd.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Patient Info - Add</title>
+</head>
+<body>
+<form method="post" action="PatientInfoAdd.jsp">
+<center>
+<h2>Hospital Management System</h2>
+</center>
+<hr>
+Patient Id.
+<input type="text" name="pid">
+<br> Name
+<input type="text" name="pname">
+<br> DOB
+<input type="text" name="dob">
+<br>
+Gender
+<input type="text" name="gender">
+<br>
+Blood Group
+<input type="text" name="bgroup">
+<br>
+<input type="submit" value="Add Details">
+</form>
+</body>
+</html>
+
+25. The full source code for PatientInfoAdd.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Patient Info - Add</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/hospital";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("insert into patient values (?, ?, ?, ?, ?)");
+String pid = request.getParameter("pid"); String pname = request.getParameter("pname"); String dob = request.getParameter("dob");
+String gender = request.getParameter("gender"); String bgroup = request.getParameter("bgroup"); ps.setString(1, pid);
+ps.setString(2, pname); ps.setString(3, dob); ps.setString(4, gender); ps.setString(5, bgroup); ps.executeUpdate();
+out.println("<center><h3>Patient Details Added</h3></center>");
+ps.close();
+conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+

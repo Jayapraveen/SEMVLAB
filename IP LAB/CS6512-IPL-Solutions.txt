@@ -1,0 +1,7252 @@
+Rajalakshmi  Engineering  College
+Rajalakshmi Nagar, Thandalam, Chennai- 602    105
+Department  of Computer Science and  Engineering
+
+
+
+
+
+
+
+CS65l 2 - Internet  Programming   Lab Sample   Programs (Regulation  - 2013)
+
+
+
+
+
+
+Prepared  by:
+B.BHUVANESWARAN Assistant  Professor  (SS) I CSE I REC bhuvaneswaran@raj  alakshmi,  edu. in
+CS6512  - INTERNET  PROGRAMMING     LABORATORY LIST  OF EXPERIMNENTS
+Webpage   Concepts
+
+a)   Create  a web page with the following  using HTML:
+a.   To embed  a map in a web page. b.    To fix the hot spots in that map.
+c.   Show  all the related   information   when the hot spots are clicked.
+b)   Create  a web page with  the following:
+a.   Cascading  style sheets. b.    Embedded  style sheets. c.    Inline style  sheets.
+Use your college  information  for the  web pages.
+c)   Create  and  save  an XML  document  at the  server,   which  contains    10   users  Information.
+Write  a Program,   which   takes  user   Id as an input  and returns   the User  details   by taking the user information  from the XML document.
+
+Sockets  &  Servlets
+
+a)  Write programs in Java using sockets to implement the following:
+i. HTTP request          ii. FTP             iii.  SMTP        iv.  POP3
+b)  Write a program in Java for creating simple  chat application with datagram sockets and datagram packets.
+c)  Write programs in Java using Servlets:
+1.       To invoke servlets from HTML forms. ii.   To invoke servlets from Applets.
+d)  Write programs in Java to create three-tier applications using servlets:
+i.    for conducting on-line examination.
+ii.   for displaying student mark list.  Assume that student information is available  in a
+database which has been stored in a database server.
+e)  Write a program to lock  servlet itself to a particular server IP address and port number. It requires an init parameter key that is appropriate for its servlet  IP address and port before it unlocks itself and handles a request.
+f)   Session tracking using hidden form fields and Session tracking for a hit count.
+g)  Install  TOMCAT web  server.  Convert  the  static  webpages of programs  1    &  2  into
+dynamic web pages using servlets (or JSP) and cookies.  Hint: Users information (user id, password,  credit card number) would be stored in web.xml.  Each user should have a separate Shopping Cart.
+
+Advance concepts:
+
+a)  Implement a simple program using following frameworks:
+a.    JSP Struts Framework.     b. Hibernate.                c.  Spring.
+b)   Explore the following application in AJAX:  Searching  in real time with live  searches, Getting the answer with auto complete,  Chatting with friends,   Dragging and dropping
+with Ajax, Getting instant login feedback, Ajax-enabled popup menus, Modifying Web pages on the fly.
+c)  Write a web services for finding what people think by asking 500 people's  opinion for
+any consumer product.
+d)  Write a web services  for predicting for any product sales.
+
+
+
+BHUVANESW ARAN BI  AP (SS) I CSE I REC - 2
+Create       a   HTMLpage   with      frames,   links,     tables         and    other       tags for      highlighting            the      facilities             in      the      Department       in      your College.     State      the      assumptions        you     make      (business        logic        you are    taking       into      consideration.)
+
+PROGRAM:
+
+DeptMain.html
+
+
+<html>
+<head>
+<title> ABC
+</title>
+</head>
+<frameset rows=  "130,*"   framespacing = "0">
+<frame  src = "depttop.html"   name=  "top"  scrolling     "no"/>
+<frameset  cols=   "175,   *">
+<frame  src = "deptleft.html"    name=  "left"   scrolling=  "no"/>
+<frame  src = "deptright.html"   name=   "right"/>
+</frameset>
+</frameset>
+</html>
+
+DeptTop.html
+
+
+<html>
+<head>
+<title> Top
+</title>
+</head>
+<body>
+<img src = "abchead.jpg"   align=   "center">
+<center>A.B.C.     Nagar,   Chennai  - 600 001</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 3
+DeptLeft.html
+
+<html>
+<head>
+<title> About
+</title>
+</head>
+<body>
+<b>CSE</b>
+<br /><br />
+<a href = "Deptintro.html"   target
+<br /><br />
+<a href = "DeptOppor.html"   target
+<br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+"right">Introduction</a> "right">Opportunities</a>
+<a href   "DeptFaculty.html"   target=   "right"> Faculty Members
+</a>
+<br /><br />
+<a href  = "DeptLab.html"   target=  "right">Lab  Facility</a>
+<br /><br  />
+<a href
+</body>
+</html>
+"DeptNews.html"  target=  "right">News</a>
+
+DeptRight.html
+
+<html>
+<head>
+<title> Home
+</title>
+</head>
+<body>
+<b>Welcome  to the Department  of CSE - Home Page</b>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 4
+Deptintro.html
+
+<html>
+<head>
+<title> Introduction
+</title>
+</head>
+<body>
+<b>INTRODUCTION</b>
+<br /><br />
+<b>Vision</b>
+<p align=   "justify">
+To provide  the best   opportunity   to the
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+students  to attain
+technical  excellence  in the   field of Engineering  and  Emerging   Technologies comprehensive  and integrated personality.
+</p>
+<b>Mission</b>
+<p align=  "justify">
+Computer and  to
+Science    &
+develop   a
+To produce  high  quality Computer  Science    and Engineering professionals  adaptable to the changing environment,   with  all• round Managerial  capabilities,   and commitment  to the Society.
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 5
+DeptOppor.html
+
+<html>
+<head>
+<title> Frameset
+</title>
+</head>
+<body>
+<b>OPPORTUNITIES</b>
+<br />
+<p align=  "justify">
+Computer  science and Engineering  graduates  are  the  pillars of the  current  and  emerging  information    era.   Opportunities include   pursuing  Master  of   Science    Programs   in   reputed Universities   of  U.S.   and taking up research  assignments  in Hardware,   System  Software,   Computer  Engineering,    Multimedia, Networking  and Communication  areas.
+</p>
+<p align=  "justify">
+Job opportunities    are   ever   increasing    and are  varied   in nature.   System study,  analysis,   Design  and Programming  are  the inherent   phases in  Application   Development   and  each  one  of them provides  enormous  potential  to the Computer  Science  and engineering  graduates  to shape  themselves  in their  career.  Hi• end  profiles    include   Artificial     Intelligence,     Robotics, Graphic  Solutions  and Simulations.
+</p>
+<p align=  "justify">
+This degree  program  prepares  students  for  Advanced,  Technical Computer  Systems  Design and Development  Work.  It  includes  the study of the  Database Design,  Data Communications,   Procedural and Object  Oriented  Programming,   Operating   Systems Design, Algorithm   Development    and   Applications    of    Artificial Intelligence.   The curriculum includes   basic  course  work  in Electronics    Technology    and   the  Theory  of    Programming Languages.   Students  focus   on   developing    computer-based solutions   involving  hardware  and  software  components  and integration.   Graduates  are  qualified  to work in a range  of positions,    from entry-level   computer   scientists   and  system engineers  to project managers   leading  advanced  applications  of computer  science  to real-world  problems.   The department  has since broadened  its research  strengths.
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 6
+DeptFaculty.html
+
+<html>
+<head><title>Faculty Members</title></head>
+<body>
+<b>FACULTY MEMBERS</b>
+<br /><br />
+<table border=  "l">
+<tr><th>No.</th><th>Name</th><th>Designation</th>
+</tr>
+<tr>
+<td>l</td><td>Dr.G.Sujitha</td>   <td>Professor  and Head</td>
+</tr>
+<tr>
+<td>2</td><td>Dr.S.Chandrakala</td>    <td>Professor</td>
+</tr>
+<tr>
+<td>3</td><td>Dr.Bhanu   Prasad  Pinnamaneni</td>
+<td>Professor</td>
+</tr>
+<tr>
+<td>4</td><td>Dr.U.Karthikeyan</td>
+<td>Associate  Professor</td>
+</tr>
+<tr>
+<td>5</td><td>Mr.B.Swaminathan</td>     <td> Associate   Professor</td>
+</tr>
+</table>
+</body>
+</html>
+
+DeptLab.html
+
+<html>
+<head><title>Lab  facility</title></head>
+<body>
+<b>LAB FACILITY</b>
+<br  />
+<p align=  "justify">
+We   have   well   established    and labor atories  for  Data  Structures, RDBMS and CASE Tools,   Internet
+equipped   state    of   art Linux,  C and Office  Suite, Programming,  Research   where
+students are allowed learn all
+their innovative ideas.
+<Ip>
+</body>
+</html>
+the experiments and develop
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 7
+DeptNews.html
+
+<html>
+<head>
+<title> News
+</title>
+</head>
+<body>
+<b>NEWS</b>
+<br /><br />
+<b>RESEARCH CENTRE</b>
+<p align=  "justify">
+The department is recognized  as a Research Center for M.S.   I
+Ph.D.   by the ANNA UNIVERSITY.
+</p>
+<b>AFFILIATION</b>
+<p align=  "justify">
+The Department  has PERMANENT AFFILIATION   from ANNA UNIVERSITY.
+</p>
+<b>AICTE-CII  SURVEY</b>
+<p align=   "justify">
+The department is  Ranked 3rd in the AICTE-CII   Survey conducted
+Nationwide  for Industry  Institute Interaction.
+</p>
+<b>IIT  BOMBAY REMOTE CENTER</b>
+<p align=   "justify">
+The department  acts as Remote Center   for  conducting   Spoken Tutorials,  workshops and certifications   by  IIT,  BOMBAY in collaboration   with ISTE and funded by MHRD
+</p>
+<b>IBM  CENTRE FOR EXCELLENCE</b>
+<p align=   "justify">
+The  department    is credited   with   IBM Software   Centre Excellence   and  the  lab  is  set  for  the  same.  We are attributed   to  conduct   International     certifications   by trained  faculty members.
+</p>
+</body>
+</html>
+for also
+IBM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 8
+OUTPUT:
+
+
+   Cl A8C                                          "      
+
+                         -~--~~,
+~         C  Dme:///C:/CS2358;Deptfv1aln.html
+
+
+ABC Engineering College
+
+A.B.C.  N~ar.Chennai-   600 001
+
+CSE
+Introduct;on Opportunities Faculty Members Lab Facility
+
+\Velcome  to the Department   of CSE - Home Page
+
+
+
+
+
+
+
+
+
+
+
+
+     -.-                 _        _        _        _        _        _        _      _      _        _       _        _        ,    .:.fJr.=,rcJlfl'X'IIIIIJ
+C   [J
+flle:///C:/CS2358;Deptfv1ain.html
+ti  -
+
+ABC Engineering College
+
+
+
+CSE
+
+
+INTRODUCTION
+A.B.C.  Nagar, Chennai - 600 001
+
+Introduction Opportunities Faculty Members Lab Facility
+Vision
+
+To  provide the  best opporturuty   to the  students  to  attain technical excellence   in the 6eld of Computer Science  &  Engineering   and  Emerging Technologies and to   develop   a  comprehensive and  integrated personality.
+
+?viiuion
+
+To  produce  high quality   Computer  Science and  Engineenng professionals    adaptable to  the  changing envirorunent,  with all-round  Managerial capabilities,  and commitment  to the Society.
+
+
+
+
+
+
+
+
+
+
+fie.I/IC /CS2356f0eptlntro.html
+
+
+
+
+BHUV ANESW ARAN  BI AP (SS) I CSE  I REC - 9
+
+
+
+
+
+[)   ABC
+x    ..
+
+
+
+
+
+------------------------                                                                                                                  .!.~    --    [;Jo           X      I
+----
+C    [1 file:///C:/CS2358/DeptlVlain.html
+
+
+ABC Engineering College
+
+
+ABC.  Nagar,  Chennai- 600 001
+
+CSE Introduction Opportunities
+Faculty Members
+
+Lab Facility
+
+OPPORTUNITIES
+
+Computer science   and Engineering  graduates   are the pillars  of the current and emerging information era Opportunities  include pursuing Master of Science Programs in reputed Universities of U.S.  and talcing  up research assignments  in Hardware.  System  Software.  Computer Engineering, Multimedia.  Networking and Communication  areas.
+
+Job  opportunities are  ever increasing and  are  varied  in nature.  System  study,  analysis, Design and Programming are the inherent phases in Application Development and each one of them provides enormous potential to the Computer Science and engineering  graduates to shape  themselves in their career.  Hi-end profiles  include Artificial Intelligence,  Robotics, Graphic Solutions and Simulations.
+
+This  degree program prepares  students  for Advanced,  Technical Computer Systems Desigil and Development Work.  It includes the study  of the Database Design, Data Communications,   Procedural and Object  Oriented Programming,   Operating Systems  Design, Algorithm Development and Applications of Artificial Intelligence.  The curriculum includes basic course work in Electronics Technology and the Theory of Programming Languages.  Students focus on developing computer-based solutions involving hardware and software components  and integration.  Graduates are qualified  to work in a range of positions, from entry• level computer  scientists  and  system engineers  to  project  managers  leading advanced applications of computer science to real-world problems.  The department has since broadened its research strengths.
+
+.,  .                               -.:.  ~f61Sxll,l
+CJ ABC                                          x
+C   [1 flle:///C:/CS2358/DeptlVlain.html
+
+                                                             ti   -
+
+
+ABC Engineering College
+
+
+AB.C.  Nagar,  Chennai - 600 001
+
+CSE
+
+Int-oduction Opportunities Fa;ulty Members
+Lao Facility
+
+FACULTY ME:MBERS No.                     Name
+2       r. S. Chandrakala
+3
+4
+
+News
+5          .B Swaminathan
+Associate Professo
+
+
+
+
+
+
+
+
+
+
+
+flle:/I/C:/C52358/DeptFacu.hltytml
+
+
+
+
+
+
+BHUV ANESW ARAN  BI AP (SS) I CSE I REC  -10
+
+
+---      ---      --       --       -    -  ---     --       --  l'?r~wr:x-1
+x
+C   CJ  flle:///C:/CS2358;DeptfV1aln.html
+
+
+ABC Engineering College
+
+
+
+CSE
+
+
+L.-Ul FACILITY
+AB. C. Nagar, Chennai   - 600 001
+Introduction Opporturuties Faculty Members Lab Facility
+
+We have well established   and equipped state of rut laboratories for Data Structures,  Limx, C and Office Suite, RDBMS and CASE Tools, Internet  Programming,  Research where students  are ailc,wed  learn ail the e"!)erirnents  and develop  their innovative  ideas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ASl:.
+"
+C    CJ  file:///C:/CS2358,'Deptfv1aln.1tml
+
+
+'Cl -
+
+
+ABC Engineering College
+
+
+
+CSE
+
+
+NEWS
+A.B.C.  N~ar.  Chennai - 600 001
+
+Introduehon Opporturuties Faculty Members Lab Facility
+
+
+
+
+
+
+
+
+
+
+
+
+fie;///C:/C52358/Dopl;Nows.html
+RESEARCH CENTRE
+
+The department is recognized  as a Research Center for M.S.  I Ph.D.  by the ANNA UNIVERSITY. AFFILIATION
+The Department has PERMANENT AFFILIATION from ANNA UNIVERSITY. AICTE-CJI  SURVEY
+The department is  Ranked 3rd in the AICTE-CII  Survey conducted   Nationwide for Industry Institute
+Interaction.
+
+JIT BOMBAY REMOTE  CENTER
+
+The department acts as Remote Center for conducting  Spoken Tutorials, workshops and certifications  by
+IIT, BOMBAY in collaboration  with ISTE and funded by MHRD IBM  CENTRE  FOR EXCELLENCE
+The department is  credited  with IBM Software   Centre  for Excellence and the  lab is set for the same.  We are also attributed  to conduct  International  certifications by IBM trained  faculty members.
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 11
+Create a HTML application with frames,   links,  tables and other tags that will provide information  about the services provided in Veena Multi Specialty  Hospital.   State the assumptions  you make (business logic you are taking into consideration).
+
+
+PROGRAM: HosMain.html
+<html>
+<head>
+<title>
+VMSH
+</title>
+</head>
+<frameset rows=  "175,*"   framespacing = "0">
+<frame src = "HosTop.html"    name=  "top"  scrolling    "no"/>
+<frameset cols=  "175,   *">
+<frame  src = "HosLeft.html"    name=  "left"  scrolling=   "no"/>
+<frame src = "HosRight.html"   name=  "right"/>
+</frameset>
+</frameset>
+</html>
+
+HosTop.html
+
+<html>
+<head>
+<title> Top
+</title>
+</head>
+<body>
+<img src =  "vmshhead.jpg">
+<center>ABC  Nagar,   Chennai  - 600 001</center>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 12
+HosLeft.html
+
+<html>
+<head>
+<title> Links
+</title>
+</head>
+<body>
+<a href   "HosAbout.html"   target
+<br /><br />
+<a href = "HosSpecialities.html"
+
+
+
+
+
+
+
+
+
+
+"right">About</a>
+target=  "right">Specialities</a>
+<br /><br />
+<a href = "HosDoctors.html"    target
+<br /><br  />
+<a href = "HosCareers.html"    target
+<br /><br />
+
+
+
+"right">Doctors</a> "right">Careers</a>
+<a href
+</body>
+</html>
+"HosContact.html"   target   "right">Contact  Us</a>
+
+HosRight.html
+
+<html>
+<head>
+<title>
+Home
+</title>
+</head>
+<body>
+<b>Welcome  to the Veena Multi  Speciality Hospital</b>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 13
+HosAbout.html
+
+<html>
+<head>
+<title> About
+</title>
+</head>
+<body>
+<b>ABOUT VMSH</b>
+<br /><br />
+<p align=  "justify">
+Established   in  1197   by  Dr.B.Bhuvaneswaran,     a   General    & Laparoscopic   Surgeon,  Veena Multi  Speciality   Hospital  began its journey  as a 15 bedded  General  and Gynaecology  hospital. Today,  the  hospital  has  reached  the milestone of  being  a 50 bedded multi-speciality   centre delivering quality service  with compassion as its  core  conviction.
+</p>
+<p align=  "justify">
+The hospital  is located  at Guindy,   the  heart   of  Chennai, accessible from all locations  in the city.  Across  each of the
+25  specialities,    care   is  offered through  the  best medical
+professionals    who  are  aided   by  advanced,   state-of-the-art infrastructure   and equipments.   At all times,   the  hospital,   the consultants  and  its staff  are  fully  equipped  to  handle  any kind of emergency  or critical  care requirements.
+</p>
+<p align=  "justify">
+At Veena,  we go beyond  the doctor-patient   relationship    and become your true healthcare  partners.
+</p>
+<p align=  "justify">
+We present  the best model  for cure  - medicine   with  a heart.
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESWARAN    BI  AP (SS) I CSE I REC  - 14
+HosSpecialities.htrnl
+
+<html>
+<head><title>Specialities</title></head>
+<body>
+<b>MULTI-SPECIALITY SERVICES</b>
+<br /><br />
+<ul>
+<li>General and Laparoscopic  Surgery</li>
+<li>Cardiology</li>
+<li>Orthopaedics</li>
+<li>Nephrology  and Urology</li>
+<li>Oncology</li>
+<li>ENT</li>
+</ul>
+</body>
+</html>
+
+HosDoctors.htrnl
+
+<html>
+<head><title>Doctors</title></head>
+<body>
+<b>DOCTORS</b>
+<br /><br />
+<table border=   "l">
+<tr>
+<th>No.</th><th>Name</th><th>Specialization</th>
+</tr>
+<tr>
+<td>l</td><td>Dr.B.Bhuvaneswaran</td>
+<td>General   & Laparoscopic   Surgeon</td>
+</tr>
+<tr>
+<td>2</td><td>Dr.S.Chithra</td><td>Cardiologist</td>
+</tr>
+<tr>
+<td>3</td><td>Dr.E.Uma</td><td>Nephrologist</td>
+</tr>
+<tr>
+<td>4</td><td>Dr.V.Gnanaganesan</td><td>Anaesthesiologist</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dr.G.Ananthi</td>
+<td>Orthopaedist</td>
+</tr>
+</table>
+</body>
+</html>
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 15
+HosCareers.html
+
+<html>
+<head>
+<title> Careers
+</title>
+</head>
+<body>
+<b>CAREERS</b>
+<br /><br />
+<b>Vacancies for Pharmacist and Lab Technician</b>
+<p align=   "justify">
+Pharmacist  (D.Pharm.   I   B.Pharm.)    Lab Technician  (D.M.L.T.     from
+D.M.E.)     B.Sc.,   M.L.T.,     from  recognized  University.   Interview on 8th April 2015 at lOam.
+</p>
+<b> Neonatology
+</b>
+<p align=  "justify">
+Junior   Peadiatricians   to work
+Neonatology.    Qualifications
+D.N.B.   preferably  with Neonatal
+</p>
+</body>
+</html>
+shift  duties  as Registrars in M.D.   Pediatrics  /   D.C.H.    / I.C.U.    experience.
+
+HosContact.html
+
+<html>
+<head>
+<title> Contact
+</title>
+</head>
+<body>
+<b>CONTACT US</b>
+<br /><br />
+Veena Multi Speciality Hospital,  ABC Nagar,  Chennai   - 600 001, Mobile  :    +91  9791519152
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 16
+OUTPUT:
+
+
+['j VMSH                                               )(
+C   Cl file:///C:/CS2358;HosMain.html
+
+
+Veena Multi SpecialityHospital
+
+
+ABC Nagar, Chennai • 600 001
+
+
+
+Welcome to the Veena Multi Speciality Hospital
+
+
+
+
+
+
+Cottact Us
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[J VMSH                                               )(
+C   o file:///C:/CS2358;HosMain.html
+
+
+Veena Multi Speciality Hospital
+
+
+ABC Nagar, Chennai- 600 001
+
+
+
+ABOUTVMSH
+
+Specialities
+
+
+
+
+
+Contact Us
+
+Established in 1197 by Dr.B.Bhuvaneswaran, a General & Laparoscopic Surgeon,Veena Multi Speciality Hospital began its journey as a  15  bedded  General and Gynaecology hospital Today, the hospital has reached  the  milestone of  being  a  50  bedded   multi-speciality centre  delivering quality service  with compassion as its core conviction.
+
+The hospital is locatec at Guindy, the heart of Chennai, accessible from all locations in !he city. Across each of the 25 specialities,  care is offered through the best medical professionalswho are aided by advanced, state-of-the-art infrastructure and equipments. At all times,  the hospital,the consultantsand its staff are fully equipped to handle anykind of emergency or critical care requirements.
+At Veena, we go beyond the doctor-patientrelationshipand become your true healthcarepartners. We present the best model for cure · medicine with a heart.
+
+
+
+
+
+flle:///C:/CS23S8/HosP.bout.html
+
+
+
+
+BHUV ANESW ARAN  BI AP (SS) I CSE I REC  - 17
+x
+C    CJ  flle:///C:/CS2358;HosMaln.html
+
+
+Veena Multi SpecialityHospital
+
+
+ABC Nagar, Chennai - 600 001
+
+
+lvWL Tl-SPECIALITY  SER VICES
+
+
+
+
+
+
+
+Cor,tact Us
+
+
+
+
+
+
+
+
+
+
+
+file ///C /CS:?3S6{HosSpeclol1t1es.htrrl
+•   General and Laparoscopic Surgery
+•   Cardiology
+•   Orthopaedics
+•   Nephrology and Urology
+•   Oncology
+•  ENT
+
+
+
+w  VMSH                                              x
+C    CJ  flle:///C:/CS2358;HosMaln.html
+
+
+Veena Multi SpecialityHospital
+
+
+ABC Nagar, Chennai - 600 001
+
+
+
+DOCTORS
+
+Speqahnes
+
+
+
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 18
+
+
+<Ci  -
+u    YMSH                                              x
+C    CJ  flle:///C:/CS2358;HosMaln.html
+
+
+Veena Multi SpecialityHospital
+
+ABC Nagar, Chennai - 600 001
+
+
+CAREERS
+
+Vacancies  for Pharmacist and Lab Teclurician
+
+Pharmacist  (D.Pharm.   I  B.Pharm.)  Lab  Technician (D.ML.T.  from  D.M.E.)   B.Sc.,   M.L.T.,   from
+recognizedUniversity. Interview on 8th April 2015 at 10am.
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+rle  ///C ICSZ35S{HosCoroers.html
+
+
+
+YMSH
+
+Neonatology
+
+Jwior  Peadiatricians to work shift duties as Registrars in Neonatology. Qualifications : MD.  Pediatrics I
+D.C.R  I D.N.B.  preferablywith  NeonatalI.CU.   experience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+x
+C    D flle:///C:/CS2358;HosMaln.html
+
+
+Veena Multi SpecialityHospital
+
+ABC Nagar, Chennai - 600 001
+
+
+CONTACT US
+
+SoeCtahties
+
+
+
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+fle.l/lC·ICS23581HosConto,t.html
+Veena Multi Speciality Hospital,ABC Nagar, Chennai- 600 001,  Mobile:  +91  9791519152
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 19
+Create a web page containing  details  about the placement  cell in your  college  using  DHTML.   Use  at least  five hyperlinks. Also embed images in the web page you are creating.  Document the functional requirements  you are considering.
+
+
+PROGRAM: PlaMain.html
+<html>
+<head>
+<title>
+ABC-Placement
+</title>
+</head>
+<frameset rows=  "175,*"   framespacing  = "0">
+<frame  src = "PlaTop.html"    name=  "top"  scrolling    "no"/>
+<frameset  cols=   "175,   *">
+<frame  src = "PlaLeft.html"    name=  "left"   scrolling=   "no"/>
+<frame  src = "PlaRight.html"    name=   "right"/>
+</frameset>
+</frameset>
+</html>
+
+PlaTop.html
+
+<html>
+<head>
+<title> Top
+</title>
+</head>
+<body>
+<img src =  "abchead.jpg">
+<center>ABC  Nagar,   Chennai  - 600 001</center>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 20
+PlaLeft.html
+
+<html>
+<head>
+<title> Links
+</title>
+</head>
+<body>
+<a href   "PlaObjective.html"  target=  "right">Objective</a>
+<br /><br />
+<a href = "PlaTraining.html"  target=   "right"> Trainings Offered
+</a>
+<br /><br  />
+<a href = "PlaRecord.html"   target
+Placement Record
+</a>
+<br /><br />
+"right">
+<a href  = "PlaRecruiters.html"    target
+Recruiters
+</a>
+<br /><br />
+<a href =   "PlaContact.html"   target
+Contact Us
+</a>
+</body>
+</html>
+"right"> "right">
+
+PlaRight.html
+
+<html>
+<head>
+<title> Home
+</title>
+</head>
+<body>
+<b>Welcome  to the ABC Engineering College  - Placement  Page</b>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 21
+PlaObjective.html
+
+<html>
+<head>
+<title> Objective
+</title>
+</head>
+<body>
+<b>OBJECTIVE</b>
+<br />
+<p align=  "justify">
+The objective  of the Placement Centre is
+<br /><br />
+To  provide  job opportunities  by bringing   the  companies   for campus recruitment  to all the  eligible  students   of final year.
+<br />
+To  enhance   current   technical   and  practical   knowledge  of students
+<br />
+To make the students  'PLUG  &       PLAY'  by imparting   soft  skills and employability skills.
+<br />
+To have strong Industry-Institute    Interaction.
+</p>
+</body>
+</html>
+
+PlaTraining.html
+
+<html>
+<head>
+<title> Training
+</title>
+</head>
+<body>
+<b>TRAINING PROGRAMMES</b>
+<br />
+<p align=  "justify">
+The  Employability  Training  Camp  is  a  unique   one  of  a  kind value  addition   programme  offered  to our  students   from  the Second year onwards.   This  camp,  which  is run on  a residential mode is offered completely free of  cost.   It  is a  matter   of pride that this programme is one of the  premier events in  the Institution and every student looks  forward eagerly to be part of this event.
+</p>
+</body>
+</html>
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 22
+PlaRecord.html
+
+<html>
+<head>
+<title> Record
+</title>
+</head>
+<body>
+<b>PLACEMENT RECORD</b><br /><br />
+2014  - 2015<br  /><br />
+No.  of students placed:  723 as on 31.03.2015<br    /><br I>
+2013 -     2014<br /><br />
+No.  of students placed:  544 as on 27.01.2015<br    /><br />
+2012  -   2013<br /><br />
+No.  of students  placed:  510 as on 16.0l.2014<br    /><br />
+2011 -   2012<br /><br />
+No.  of students placed:  841 as on 07.11.2012
+</body>
+</html>
+
+PlaRecruiters.html
+
+<html>
+<head><title>Recruiters</title></head>
+<body>
+<b>RECRUITERS</b>
+<br /><br /> Accenture
+<br />
+Ashok Leyland Ltd.
+<br />
+Bajaj Capital
+<br />
+Blue Star
+<br />
+FL Smidth
+<br />
+Flextronics
+<br /> Foxconn
+<br /> IBM
+<br />
+ICICI
+<br />
+Syntel
+<br />
+TATA Consultancy  Services
+</body>
+</html>
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 23
+PlaContact.html
+
+<html>
+<head>
+<title> Contact
+</title>
+</head>
+<body>
+<b>CONTACT US</b>
+<br /><br />
+Placement Cell,  ABC Engineering College,  ABC Nagar, Chennai - 600 001,  Mobile :    +91 9791519152
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 24
+OUTPUT:
+
+
+[j  ABC-l'tacoment                        ><
+C   D file:/f/C:/CS2358,i?lav\aln.html
+
+
+ABC Engineering College
+
+ABC Nagar, Chennai  - 600 001
+
+
+
+\Velcome to the ABC Engineering College - Placement Page
+
+Trainings Offered
+
+Placement Record
+
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C   D file:/f/C:/CS2358,i?lav\ain.html
+
+
+ABC Engineering College
+'{;/    -
+
+ABC Nagar, Chennai  - 600 00 I
+
+
+
+
+
+Trrurungs  Offered
+
+Placement Record
+
+
+
+Contact Us
+OBJECTIVE
+
+The objective of the Placement Centre is
+
+To provide job opportunities  by bringing the  companies  for campus  recruitment  to all the  eligible students  of
+6na1 year
+To enhance current technical and practical  knowledge of students
+To make the students 'PLUG & PLAY' by imparting  soft skills  and employability  skills. To have strong Industry-Institute Interaction.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN   BI AP (SS) I CSE I REC  - 25
+
+Cl ABC-Placement                      ,c     ~
+
+·.:..
+
+~~.~c       X      I
+C    Cl file:///C:/CS2358,IPlaMain.html
+                                                                                       '{;]   -
+
+ABC Engineering College
+
+ABC Nagar, Chennai - 600 001
+
+
+
+
+Trainings  Offered
+
+Placement Record
+
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+fllo:///(../CS2356/PlaTrolnlnQ.html
+TRAJNING PROGRAJ.\lllvIBS
+
+The Employability Training Camp is a unique one of a kind value addition programme offeredto our students from the Second year onwards. This camp, which is run on a residentialmode is offeredcompletely free of cost.  It is a matter of pride that this programme is one of the premier events in the Institution and every student looks forward eagerlyto be part of this event.
+
+
+
+[J ABC-Placement                      ,c
+C   [j file:///C:/CS2358,i?laMain.html                                                                                               '{;]  -
+
+ABC Engineering College
+
+.ABCNagar, Chennai- 600 001
+
+
+
+PLACEMENT  RECORD
+
+TrainingsOfferec
+
+Placement Record
+
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+fole:///C:/CS2358/PlaRecord.html
+2014 - 2015
+
+No.  of students placed:723  as on 31.03.2015
+
+2013 - 2014
+
+No. of students placed: 544 as on 27 012015
+
+2012 - 2013
+
+No. of students placed: 510 as on 16.01.2014
+
+2011 - 2012
+
+No. of students placed: 841  as on 07.11.2012
+
+
+
+
+
+BHUV ANESW ARAN  BI AP (SS) I CSE I REC  - 26
+[J ASC-l'lacement                      I<
+e    file:///C:/CS2358,.Plct-1aln.html
+
+
+ABC Engineering College
+
+ABC Nagar,  Chennai- 600 001
+
+
+
+RECRUITERS
+
+TrainingsOffered
+
+Placement  Record
+
+
+
+Contact Us
+
+
+
+
+
+
+
+
+
+
+
+file:///C:/C52358/l'loReoute<s.ltml
+Accenture
+Ashok Leyland  Ltd.
+Bajaj Capital
+Blue Star FL Smidth Flextronics Foxconn IBM ICICI Syotel
+TATA Consultancy  Services
+
+
+
+
+C   CJ  flle:///C:/CS2358,.Plct-1ain.htrnl
+
+
+ABC Engineering College
+'(;/_
+
+ABC Nagar,  Chennai - 600 001
+
+
+
+CONTACT US
+
+Trairungs Offered
+
+Placement Record
+
+
+
+Contact Us
+Placement CeU, ABC Engineering College, ABC Nagar,  Chennai • 600 001,   Mobile:   +91  9'.'91519152
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI AP (SS) I CSE I REC  - 2 7
+Embed  an image  map  picture (India map)  on  a Web  page  that provides  different  links to other Web pages(different  states) and show the all the related information  depending  on where a user clicks on the image.
+
+
+PROGRAM: ImageMap.htrnl
+<html>
+<head>
+<title>Image  Map</title>
+</head>
+<body>
+<map id=  "picture"   name=  "picture">
+<area  href = "TamilNadu.html"    shape=   "circle" coords = "170,  490,  30"  alt  = "Tamil Nadu"  />
+<area href = "Karnataka.html"   shape=   "rect"
+coords  = "115,  390,  150,  450"  alt = "Karnataka"   />
+<area  href  = "AndhraPradesh.html"     shape= "poly"
+coords  = "165,  355,  200,  355,  220,  380,  170,   425,  165,
+355"  alt=   "Andhra  Pradesh"/>
+<area href = "Kerala.html"    shape=  "poly"
+coords = "115,   455,  160,  470,   140,  485,   150,  505,  150,
+530,  135,  500,  115,  455"  alt = "Kerala"  />
+</map>
+<img src  = "India.jpg"   alt=   "India"  usemap  ="#picture"/>
+</body>
+</html>
+
+TarnilNadu.htrnl
+
+<html>
+<head><title>About  Tamil Nadu</title></head>
+<body>
+<center><hl>Tamil   Nadu</hl></center>
+<hr/>
+<ul>
+<li>Area  :    1,30,058   Sq.  Kms.</li>
+<li>Capital   :    Chennai</li>
+<li>Language  :    Tamil</li>
+<li>Population   :    6,21,10,839</li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 28
+AndhraPradesh.htrnl
+
+<html>
+<head><title>About Andhra Pradesh</title></head>
+<body>
+<center><hl>Andhra Pradesh</hl></center>
+<hr/>
+<ul>
+<li>Area  :    2,75,068   Sq.  Kms</li>
+<li>Capital :    Hyderabad</li>
+<li>Language :    Telugu</li>
+<li>Population:   7,57,27,541</li>
+</ul>
+</body>
+</html>
+
+Kerala.htrnl
+
+<html>
+<head>
+<title>About Kerala</title>
+</head>
+<body>
+<center><hl>Kerala</hl></center>
+<hr/>
+<ul>
+<li>Area  :    38,863  Sq.  Kms.</li>
+<li>Capital  :    Thiruvananthapuram</li>
+<li>Language  :    Malayalam</li>
+<li>Population   :    3,18,38,619</li>
+</ul>
+</body>
+</html>
+
+Karnataka.htrnl
+
+<html>
+<head><title>About Karnataka</title></head>
+<body>
+<center><hl>Karnataka</hl></center>
+<hr/>
+<ul>
+<li>Area :    1,91,791   Sq.  Kms</li>
+<li>Capital :    Bangalore</li>
+<li>Language  :    Kannada</li>
+<li>Population  :    5,27,33,958</li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 29
+OUTPUT:
+
+M JP Lab Ima9es - bhuvanesw  X      CJ ImaQe Map                                 x
+-+  C   Cl file:///C:/CS2358/ImageMap.html
+
+
+
+
+
+
+
+
+M IP LabImages- bhuvanesw  lC           CJ AboutTamilNadu
+C   Cl file:///C:/CS2358/Tami1Nadu.html
+
+
+
+Tamil  Nadu
+
+
+•  Area  1,30,058  Sq. Kms.
+•  Capital Chennai
+•  Language . Tamil
+•  Population 6,21,10,839
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BffiJVANESW ARAN  BI AP (SS) I CSE I REC  - 30
+M IP L"bIm~es · bhuvo,neS\'\   x      CJ About Andhr"Pr.adesh           X    -                                                                                                                            1~c1·.:.1o11x-:-I
+C   [.J  flle:///C:/CS2358/AndhraPradesh.html
+
+Andhra Pradesh
+
+•  Area  2,75,068  Sq. Kms
+•   Capital   Hyderabad
+•   Language .  Telugu
+•   Population   7 ,57 ,27 ,541
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~J~!!!f~       -.'IAbootAndhraPrades      ria~                                                            ~Zl.:Zl.
+
+M IP LabImages- bhuvanesw  x       [j  AboutKerala                       x
+C   CJ file:///C:/CS2358jkerala.html
+
+
+
+Kerala
+
+
+•   Area    38,863   Sq. Kms,
+•   Capital   Thiruvananthapuram
+•   Language   Malayalam
+•   Population   3.18,38,619
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~                              ~AboutKer"l"·Googt         riacS2358•InterneitP1..                                                                                                                                                              ~J..?2,'l2.
+
+
+
+
+
+
+BffiJVANESW ARAN  BI AP (SS) I CSE I REC  - 31
+'M IP L"b Im~es    · bhuvo,neS\'\       x}  CJ About  K"rn"t"k.,
+C   [.J  flle:///C:/CS2358/karnataka.html
+
+
+)(     \
+
+
+
+
+
+Karnataka
+
+
+Wdfi#ttl
+
+
+•  Area  1,91,791   Sq. Kms
+•   Capital   Bangalore
+•   Language .  Kannada
+•   Population    5,27 ,33,958
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~J~!!!f~       -.'IAboutKarnatak-aGo               ria~                                                            ~Zl.:Zl.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BffiJVANESW  ARAN  BI AP (SS) I CSE I REC  - 32
+Create  an webpage  to embed a human body  image,  identify  and display all the related information  about the human body parts (head, eye,  nose,  finger etc) based on the user clicks on the human body image map.
+PROGRAM: FSHumanBody.html
+
+<html>
+<head>
+<title>
+Frameset - Human  Body
+</title>
+</head>
+<frameset cols = "400,   *">
+<frame src = "fslhumanbody.html"    name
+<frame src = "fsrhumanbody.html"    name
+</frameset>
+</html>
+
+
+
+
+
+
+
+
+
+
+"left"/> "right"/>
+
+FSLHumanBody.html
+
+<html>
+<head>
+<title>Human Body</title>
+</head>
+<body>
+<hl align=   "center">Parts   of a Human Body</hl>
+<map id=  "picture"   name=  "picture">
+<area  href = "Head.html"   shape= "rect"  target    "right" coords = "155,  75,  190,  85"  alt = "Head"  />
+<area  href = "Eyes.html"    shape= "rect"  target   "right" coords  = "160,   90,  170,  100"  alt=  "Eye"/>
+<area  href = "Eyes.html"   shape=   "rect"  target    "right" coords = "180,   90,  190,  100"  alt=  "Eye"/>
+<area  href = "Nose.html"   shape=  "rect"  target=  "right" coords = "170,  100,  180,  110"  alt=   "Nose"  />
+<area href = "Mouth.html"   shape= "circle"  target coords  = "175,  120,  5"  alt=  "Mouth"  />
+<area href = "Fingers.html"    shape=   "rect"  target coords  = "75,  325,  110,  360"  alt = "Fingers"   />
+<area href = "Fingers.html"    shape     "rect"  target coords = "230,   315,  255,  350"  alt = "Fingers"  />
+</map>
+"right" "right" "right"
+<img src = "Human.jpg"   alt=  "Human"  usemap ="#picture"/>
+</body>
+</html>
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 33
+FSRHumanBody.html
+
+<html>
+<head>
+<title>Image Map</title>
+</head>
+<body>
+<hl align=  "center">
+Welcome to learn the Parts of a Human Body ...
+</hl>
+</body>
+</html>
+
+Head.html
+
+<html>
+<head>
+<title>Head</title>
+</head>
+<body>
+<hl align=  "center">Head</hl>
+<p align=  "justify">
+The human head contains  core  elements   of the nervous  system  -
+the brain   and spinal   column     and  the  beginning   of  the digestive   system.   It's   also the   center   for   interpersonal communication  through listening,   speaking,  seeing,  and facial.
+</p>
+</body>
+</html>
+
+Eyes.html
+
+<html>
+<head>
+<title>Eyes</title>
+</head>
+<body>
+<hl align=  "center">Eyes</hl>
+<p align=  "justify">
+The  eye  is a complex  and  amazing  organ  filled with  nerves,  a lens,   liquid,  and more.   Not only does it give us the ability to  see the  world around us,  but it also   brings that  world in color,  in three dimensions,   and even under  low light.
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 34
+Nose.html
+
+<html>
+<head>
+<title>Nose</title>
+</head>
+<body>
+<hl align=  "center">Nose</hl>
+<p align=  "justify">
+The nose is the  body's   organ of smell  and  also functions  as
+part  of the body's  respiratory system.  Air comes into the body through the nose.
+</p>
+</body>
+</html>
+
+Mouth.html
+
+<html>
+<head>
+<title>Mouth</title>
+</head>
+<body>
+<hl align=   "center">Mouth</hl>
+<p align=  "justify">
+The  mouth is  an orifice  in the head.   It  contains   teeth,  the tongue and the palate.
+</p>
+</body>
+</html>
+
+Fingers.html
+
+<html>
+<head>
+<title>fingers</title>
+</head>
+<body>
+<hl align=  "center">fingers</hl>
+<p align=  "justify">
+Thumb,   pointer  finger,   middle  finger,   index   finger,   pinky finger.
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 35
+OUTPUT:
+
+
+CJ  Frameset - Human Body
+C   CJ file:///C:/CS2358/FSHumanBody.html
+
+Parts of a Human   Body                   Welcome to learn  Human Body ...
+
+
+<Ci     -
+
+
+I)  Frameset  - Human Body                    -
+
+
+                                                                                                                                            !  !.  1\-     !CI      X     I
+C   CJ file:///C:/CS2358/FSHumanBodyhtml
+
+Parts of a Human Body                                             Head
+ti  -
+
+The human head  contains core elements of the nervous system - the brain and spinal column - and the beginning of the digestive system. It's  also the center for interpersonal communication through listening, speaking, seeing, and facial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 36
+[J Frameset - Human Body        x
+C   CJ  file:///C:/CS235S;fSHumanBody.html
+
+Parts of a Human Body                                              Eyes
+
+The eye is a complex and amazing organ filled with nerves, a lens, liquid, and more. Not  only does it
+give us the ability to see the world around us, but it also brings that world in color. in three dimensions, and even under low light.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[J Frameset- HumanBody          X
+C   CJ  file:///C:/CS235S;fSHumanBody.html
+
+Pa11s of a Human Body                                              Nose
+
+'Ci  -
+
+The nose is the body s organ of smell and also functions as part of the body's  respiratory system. AK
+comes  into the body 1lirough the nose.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 37
+[J Frameset  - Human Body            x
+C   CJ file:///C:/CS2358/FSHumanBody.html
+
+Parts of a Human Body                                            Mouth
+
+The mouth is an orifice in the head. It contains teeth, the tongue and the palate.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+filo,///C,/(52358/Mouth.html
+
+
+Cl Frameset  - Human Body
+C   CJ  file ///C:/CS2358/FSHumanBody.html
+
+Parts of a Human Body                                           Fingers
+
+Thumb,  pointer finger,  middle finger,  index finger,  pinky finger.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 38
+
+
+'Cl -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'Cl -
+Add  an  embedded   style  sheet  to  the  html  document  that represent hotel menu items.  The style sheet should contain the rules  for  displaying   all  non  vegetarian   menu  items  in
+{color:red;       font-size:smaller;       font-weight:bold}      and vegetarian  menu items in {color:green;   font-size:larger}.
+
+
+PROGRAM: Hotel.html
+<html>
+
+<head>
+
+<title>Food Menu Items</title>
+
+<style type="text/css">
+
+#non veg
+{
+color:red;
+font-size:smaller;
+font-weight:bold
+
+
+
+#veg
+{
+
+
+
+color:green;
+font-size:larger
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<img src="kfc.png">
+<img src="online.png"   align="right">
+<br /><br /><br />
+<hr/>
+<hl align="center">FOOD   MENU ITEMS</hl>
+<hr/>
+
+<b>WOW</b>
+<ul>
+<li id="nonveg">Chicken  Snacker</li>
+<li id="veg">Potato   Krisper</li>
+<li id="veg">Kold  Koffee</li>
+<li id="veg">KFC  Krushers  Lime Soda</li>
+</ul>
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 39
+<b>SNACKS</b>
+<ul>
+<li id="nonveg">Hot   Wings 5 pc</li>
+<li id="nonveg">Popcorn    Chicken</li>
+<li id="nonveg">Boneless    Strips</li>
+<li id="veg">Veg   Strips 6 pc</li>
+<li id="veg">Large   Fries</li>
+<li id="veg">Medium   Fries</li>
+</ul>
+
+<b>BURGERS</b>
+<ul>
+<li id="nonveg">Chicken    Zinger</li>
+<li  id="veg">Paneer   Zinger</li>
+<li  id="veg">Veg   Rockin Burger</li>
+<li  id="nonveg">Chicken    Rockin Burger</li>
+</ul>
+<hr/>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 40
+OUTPUT:
+
+
+---------------------------------------"r.1.-f'':'l·r,·rx-
+
+DKFC
+Mso
+
+ORDER ONLINE
+• MlectS!Mes onlr         /
+
+
+FOOD 1\JENU  fi'EJ\JS
+
+wow
+
+•   01idau   Sudcu-
+•  Po111to Krisp"'
+•   f..<>ldi,;ntfff
+•   !JC Km.rue.-.,Lim• soda
+
+SNAt'K.'!
+
+•   lt,1\\tal;•f,-:
+•  rtf,Nt.. OJdn
+...........    ¥....
+•   V<• Sbl))• 6 p,
+•   Ur!tF1ies
+•   Mtclnunl•nt~
+
+BURGERS
+,  nldr.T..J.c:r-r
+•   P111ttr7..d1RC!I'
+•   Vc11. Jloc~1 !St1 a-u
+•  tlo~•H.MH-v,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 41
+Create  external  style  sheet  using  different  subset  of  the style rules with the following specification:
+body{font-family:arial,    Helvetica,  sans-serif}
+li {font-weight:bold}
+hl{text-decoration:underline}
+ul{margin-left:20px}
+Then write  a complete  html document  to apply  all the above rules to the suitable application  domain.
+PROGRAM: Courses.html
+
+<html>
+<head><title>Courses</title>
+<link rel=   "stylesheet"   type href = "colstyles.css"     />
+</head>
+<body>
+
+
+
+"text/css"
+<img  src  = "abchead.jpg"    /><br />
+<b>A.B.C.    Nagar,  Chennai  - 600  001</b><hr  />
+<hl>COURSES   OFFERED</hl>
+<h2>Under  Graduate Courses</h2>
+<ul>
+<li>B.E.    Computer Science  & Engineering</li>
+<li>B.E.    Electronics  & Communication   Engineering</li>
+<li>B.E.   Mechanical  Engineering</li>
+<li>B.E.    Electrical   & Electronics   Engineering</li>
+<li>B.E.    Aeronautical   Engineering</li>
+<li>B.E.    Bio-Medical   Engineering</li>
+<li>B.E.    Automobile  Engineering</li>
+<li>B.Tech.    Information  Technology</li>
+<li>B.Tech.    Bio Technology</li>
+<li>B.E.    Civil Engineering</li>
+<li>B.Arch    (Approved by Council of Architecture)</li>
+</ul>
+<h2>Post  Graduate Courses</h2>
+<ul>
+<li>M.E.    Engineering  Design</li>
+<li>M.E.    Computer Science   & Engineering</li>
+<li>M.E.    Software  Engineering</li>
+<li>M.E.    Communication  Systems</li>
+<li>M.E.    Power Electronics  &  Drives</li>
+<li>M.E.    Embedded Systems</li>
+<li>M.E.    Medical  Electronics</li>
+<li>M.Tech.    Bio-Technology</li>
+<li>M.B.A.    Master  of Business Administration   (2  years)</li>
+<li>M.C.A.    Master of Computer  Applications   (3  years)</li>
+</ul>
+</body>
+</html>
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 42
+colstyles.css
+
+body
+{
+
+
+
+
+hl
+{
+
+
+
+
+ul
+{
+
+
+
+
+li
+{
+
+
+
+font-family:arial,     Helvetica,   sans-serif
+
+
+
+
+
+text-decoration:underline
+
+
+
+
+
+margin-left:20px
+
+
+
+
+
+font-weight:bold
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 43
+OUTPUT:
+
+
+
+
+ABC Engineering College
+
+A.B.C. Nagar. Chennal  - 600 001
+
+COURSES OFFERED
+
+Under Graduate Courses
+
+B.E. Computer Science  & Englnurlng
+B.E. Electronic, & communJcatton   Englnuttng
+B.E.  Mechanical   Engln•edng
+B.E. Elec1ric-e.J  & Electronics Engirnemg
+B.E.  Aeronautic-al   Engineering
+e.e. Bio-Medical   Englneerin,g
+B.E.  Automobile   Engineering B.Tech.InformationTechnology B.Tech. BioTechnology
+B.E. CMI Englneerlng
+B.Arch (Approved  by Counen ofAtchtecture)
+
+Post Graduate Courses
+
+M.E.EngineeringDesign
+M,E.ComputerSciencea. Engineering
+M.E. Soltwart  Englnurlng
+M.E.CommunicationSy1ttm1
+M.E. Power e.1ectron1ca   & or1v11
+M,E. Embtddtd  Sy.-ttma
+M.E. Mtdlcl.l Eltttlonkt
+M.T,ch. Bio·Ttchnology
+M.B.A. Mnttr ofBu,tntt,   Admini1'tr11lon (2 ytart)
+M.CA   Mo.Ctr    or Computtr   Applicotion•    (3 yeoro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 44
+Create  a  web  page  using  cascading   style  sheets Automobile  Company which markets  and sells cars.  Use five hyperlinks.   Also  embed  images  in the web page creating.    Document   the  functional   requirements considering.
+for  an at least you are you  are
+
+PROGRAM: AutoMain.html
+<html>
+<head>
+<title>
+IJK Aotomobiles
+</title>
+</head>
+<frameset rows=  "175,*"   framespacing = "0">
+<frame src = "AutoTop.html"   name=  "top"  scrolling    "no"/>
+<frameset  cols=  "175,   *">
+<frame  src = "AutoLeft.html"   name=  "left"   scrolling=   "no"/>
+<frame  src = "AutoRight.html"   name=   "right"/>
+</frameset>
+</frameset>
+</html>
+
+AutoTop.html
+
+<html>
+<head>
+<title> Top
+</title>
+</head>
+<body>
+<img src
+<p style
+ABC Nagar,
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+"ij khead. jpg">
+"font-size:15pt;     color:#OOOOff">
+Chennai   - 600 001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 45
+AutoLeft.html
+
+<html>
+<head>
+<title> Links
+</title>
+<style type body
+{
+
+
+
+
+
+
+
+"text/css">
+background-color:#336699
+
+a
+
+text-decoration:none;
+
+a:hover
+
+text-decoration:underline;
+background-color:#ffffff
+
+</style>
+</head>
+
+<body>
+<a href   "AutoAbout.html"   target=  "right">About   Us</a>
+<br><br>
+<a href = "AutoVision.html"    target=  "right">Vision</a>
+<br><br>
+<a href = "AutoMission.html"    target
+<br><br>
+<a href =  "AutoEnquiry.html"  target
+<br><br>
+"right">Mission</a> "right">Enquiry</a>
+<a href
+</body>
+</html>
+"AutoContact.html"   target   "right">Contact   Us</a>
+
+AutoRight.html
+
+<html>
+<head>
+<title> Welcome
+</title>
+</head>
+<body>
+<b>Welcome  to the IJK Cars Private  Limited  - Home Page</b>
+</body>
+</html>
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 46
+AutoAbout.html
+
+<html>
+<head>
+<title> About
+</title>
+<link rel href
+</head>
+<body>
+
+
+
+
+
+
+
+"stylesheet"  type
+"autostyles.css">
+
+
+
+
+
+
+
+"text/css"
+<b class
+<br />
+"special">ABOUT  THE IJK</b>
+<p align    "justify">
+IJK   Cars   Pvt.   Ltd.   is   a   strong   automobile enterprise.  This  venture   is  part  of  a  larger 25 group of organizations  which has  interests  in
+<br> Education
+<br /> Infrastructure
+<br />
+Automobile  Marketing
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 47
+
+marketing years  old
+AutoVision.html
+
+<html>
+<head>
+<title> Vision
+</title>
+<link rel href
+</head>
+<body>
+<b class
+<br />
+
+
+
+
+
+
+
+"stylesheet"  type
+"autostyles.css">
+
+
+
+"special">VISION</b>
+
+
+
+
+
+
+
+"text/css"
+<p align   "justify">
+IJKCPL believes that our businesses   should  play a major  role in  supporting the communities  in  which they  operate.   Every business  has a responsibility to contribute  to the well-being of  its people,   their families and  the society in which  it operates     in  short,  put something  back into  the  community.
+</p>
+</body>
+</html>
+
+AutoMission.html
+
+<html>
+<head>
+<title> Mission
+</title>
+<link  rel
+href
+</head>
+<body>
+<b class
+<br />
+
+
+
+
+
+
+
+"stylesheet"   type
+"autostyles.css">
+
+
+
+"special">MISSION</b>
+
+
+
+
+
+
+
+"text/css"
+<p align   "justify">
+IJKCPL  is   committed  to  serve   the  communities where we do business,   to  provide  our customers   with innovative,   high• quality products and services and to protect  the health of our workers    and  our  environment,    through  ethical   business practices  and good governance.
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 48
+AutoEnquiry.html
+
+<html>
+<head>
+<title>Enquiry</title>
+<link rel   "stylesheet"  type
+href = "autostyles.css">
+</head>
+<body>
+
+
+
+
+"text/css"
+<b class   "special">CAR  ENQUIRY FORM</b>
+<br>
+<p align=  "justify">
+<form method="post"  action="registration.jsp"> First Name :
+<input type="textbox"  name="fname"  size="30">
+<br /><br  /> Last Name  :
+<input type="textbox"  name="lname"  size="30">
+<br /><br />
+Gender
+<input type="radio"  name="gender"  value="Male">
+Male
+<input type="radio"   name="gender"  value="Female">
+Female
+<br /><br />
+Email Id :
+<input  type="textbox"   name="email"   size="lOO">
+<br /><br  /> Mobile No.
+<input  type="textbox"  name="mobile"  size="30"   maxlength="lO">
+<br /><br  />
+Car :
+<select  name="car">
+<option value="SWIFT">SWIFT</option>
+<option  value="A-STAR">A-STAR</option>
+<option value="ESTILO">ESTILO</option>
+</select>
+<br /><br />
+<input type="checkbox"  name="agree"   value="agree">
+I Agree
+<textarea>I  agree to the  IJKCPL Terms  of Service  and Privacy
+Policy
+</textarea>
+<br /><br />
+<input type="submit"  value="Submit  My Enquiry">
+<input type="reset"  value="Clear">
+</form>
+</p>
+</body>
+</html>
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 49
+AutoContact.html
+
+<html>
+<head>
+<title> Contact
+</title>
+<link rel href
+</head>
+<body>
+
+
+
+
+
+
+
+"stylesheet"  type
+"autostyles.css">
+
+
+
+
+
+
+
+"text/css"
+<b class
+<br />
+"special">CONTACT   US</b>
+<p align    "justify">
+Manager,   IJK Cars  Private  Limited,  A.B.C.    Nagar, Chennai - 600 001
+</p>
+</body>
+</html>
+
+autostyles.css
+
+/* An external   stylesheet  */
+
+p
+{
+font-size:12pt;
+color:#336699
+
+
+
+table
+{
+
+
+
+background-color:silver
+
+
+
+.special
+{
+color:blue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 50
+OUTPUT:
+
+
+Cl !l( Aotomobies               x
+-    C   CJ  file:///C:/CS2358/AutoMain.htrnl
+
+
+IJK  Cars Private Limited
+
+
+ABC Nagar, Cheunai- 600 001
+
+
+\Velcometo the LJK Cars PrivateLimited- HomePage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+L rJ< Aotomollies               x
+C   u file:///C:/CS2358/AutoMain.htrnl
+
+
+IJK  Cars Private Limited
+
+
+ABC Nagar, Chennai - 600 001
+
+
+ABOUT THE IJK
+
+DK  Cars  Pvt  Ltd. IS a strong  automobile  marketing   enterprise.   This venture  is part  of a larger  25 years   old group  of orgamzallons  which  has llllerests  in
+Education Infrastructure Automobtle  Marketmg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BIDN ANESWARAN BI AP (SS) I CSE I REC - 51
+[j   Jl(Aotomooles                      "
+C   LJ flle:///C:/CS2358/Autotv1ain.htrnl
+
+
+IJK  Cars Private Limited
+
+
+ABC Nagar, Chennai - 600 001
+
+
+VISION
+
+DKCPL bebeves that our businesses should play a major role in supporting the commurutiesin wluch they operate  Every business has a responsibilityto contnbute to the well-being of its people, their familiesand the society m winch II operates-  in short, put somethingback into the community.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.:,.       -"'e-     i;::i,     x_   I
+[J !)( Aotomobies                   "
+C   [j
+file:///C:/CS2358!Autdvlain.htrnl
+
+
+IJK  Cars Private Limited
+
+
+ABC Nagar, Chennai - 600 001
+
+
+l.IlSSION
+
+DKCPL IS commrtted to serve the commumties where we  do business, to provide our customers with mnovatrr., h,gb-quabtyproducts and services and to protect the health of our workers and our environment. through ctlucalbusmess practices and good governance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI AP (SS) I CSE I REC  - 52
+CJ  !JI( Aotomobles               "
++-         C   D file:///C:/CS2358/AutoMain.html
+
+
+IJK  Cars Private Limited
+
+
+ABC Nagar, Chennai- 600 001
+
+
+CAR ENQlJIRYFORM First Name:
+
+
+Gender :          Male       Female
+
+Email Id:
+
+
+MobileNo.·
+
+Car:   SWIFT  •
+
+I  agree     to    the                 :
+I Agree  IJKCPL   Terms  of            ,a
+
+! Subm~ My Enquiry H Clear I
+
+
+
+
+CJ  !)I(  Aotomobles               "
++-         C   o file://fC:/CS2358/AutoMain.html
+
+
+IJK  Cars Private Limited
+
+
+ABC Nagar, Chennai - 600 001
+
+
+CONTACT US
+
+Manager.DK Cars Pnvate Lmuted. AB.C.  Nagar, Chennai - 600 001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BIDN ANESWARAN BI AP (SS) I CSE I REC - 53
+
+
+<Cl   -
+Create  an XML  to represent  the BOOKS  catalog  that has  the following elements  (TITLE,  ISBN NO,  AUTHOR,  PUBLISHER,  PRICE). Display the book details styled with XSLT.
+
+
+PROGRAM:
+
+catalog.xml
+
+<?xml version="l.O"   encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl"  href="catalog.xsl"?>
+
+<catalog>
+
+<book>
+<title>Programming in ANSI C</title>
+<isbn>1259004619</isbn>
+<author>E.Balaguruswamy</author>
+<publisher>McGraw  Hill</publisher>
+<price>l50</price>
+</book>
+
+<book>
+<title>Java - The Complete Reference</title>
+<isbn>9339212096</isbn>
+<author>Herbert Schildt</author>
+<publisher>McGraw  Hill</publisher>
+<price>612</price>
+</book>
+
+<book>
+<title>Web  Technologies</title>
+<isbn>8131717151</isbn>
+<author>Jackson</author>
+<publisher>Pearson   India</publisher>
+<price>435</price>
+</book>
+
+</catalog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 54
+catalog.xsl
+
+<?xml version="l.0"   encoding="UTF-8"?>
+
+<html xsl:version="l.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<body style="background-color:#EEEEEE">
+
+<xsl:for-each  select="catalog/book">
+
+<div style="background-color:teal;color:white;padding:4px">
+<span style="font-weight:bold">
+<xsl:value-of   select="title"   /> -
+</span>
+<xsl:value-of   select="author"   />
+</div>
+
+<div style="margin-left:20px;margin-bottom:lem;
+font-size:lOpt">
+<p>
+<xsl:value-of  select="publisher"   />
+<span style="font-style:italic">     -
+Rs.  <xsl:value-of   select="price"/>    <br /><br /> ISBN No.  <xsl:value-of   select="isbn"/>
+</span>
+</p>
+</div>
+
+</xsl:for-each>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 55
+OUTPUT:
+
+
+
+
+
+/    )Se¥ch                                                           Id]   •
+
+
+
+Programming in ANSI C - E Balaguruswamy
+
+M cOraw Hill - R>. l 50 lSBNNo. 1259004619
+
+Java · The Complete Reference - Herbert Schildt
+
+McOrawHill-R>. 612 lSBNNo. 9339212096
+Web Technologies·  Jackson
+
+Pearson India. R>. '35
+
+lSBNNo. 8131717151
+
+
+
+
+
+
+
+~Done                                                                                                                                                                        j  My Computer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARANBI  AP (SS) I CSE I REC - 56
+Create  an  Extensible   mark  up  language  to  represent  the students  mark  information  of  a class.  Create  a webpage  to display all the students consolidated  mark statement with pass (green color) or fail (red color) using XSLT.
+
+
+PROGRAM:
+
+students.xml
+
+<?xml version="l.0"   encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl"  href="students.xsl"     ?>
+
+<college>
+<student>
+<rollno>201201001</rollno>
+<name>Arun</name>
+<result>
+<subject>Web  Technology</subject>
+<marks>85</marks>
+</result>
+<result>
+<subject>Internet  Programming Lab</subject>
+<marks>lOO</marks>
+</result>
+</student>
+<student>
+<rollno>201201002</rollno>
+<name>Bhuvan</name>
+<result>
+<subject>Web  Technology</subject>
+<marks>95</marks>
+</result>
+<result>
+<subject>Internet   Programming Lab</subject>
+<marks>lOO</marks>
+</result>
+</student>
+<student>
+<rollno>201201003</rollno>
+<name>Chithra</name>
+<result>
+<subject>Web  Technology</subject>
+<marks>45</marks>
+</result>
+<result>
+<subject>Internet Programming Lab</subject>
+<marks>70</marks>
+</result>
+</student>
+</college>
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 57
+students.xsl
+
+<?xml  version="l.0"    encoding="UTF-8"?>
+<xsl:stylesheet   version="l.0"
+xmlns:xsl="http://www-.w3.org/1999/XSL/Transform">
+<xsl:template   match="/">
+<html>
+<body>
+<h2>A.B.C.    Engineering  College</h2>
+<h3>Consolidated  Mark Statement</h3>
+
+<xsl:for-each   select="college/student"> Roll No.
+<xsl:value-of    select="rollno"   />
+Name :
+<xsl:value-of     select="name"    />
+
+<table border="l">
+<tr bgcolor="#ffffOO">
+<th>Subject  Name</th>
+<th>Marks</th>
+</tr>
+
+<xsl:for-each    select="result">
+
+<xsl:  if test="marks    &l t;  50">
+<tr bgcolor="#ffOOOO">
+<td><xsl:value-of     select="subject"/></td>
+<td><xsl:value-of     select="marks"/></td>
+</tr>
+</xsl:if>
+
+<xsl: if  test="marks  &gt;  4 9">
+<tr  bgcolor="#OOffOO">
+<td><xsl:value-of    select="subject"    /></td>
+<td><xsl:value-of    select="marks"   /></td>
+</tr>
+</xsl:if>
+</xsl:for-each>
+
+</table>
+</xsl:for-each>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 58
+OUTPUT:
+
+
+
+
+
+.. fti ·~
+
+~~~~~~~~~~~~~....:vJ~Go
+
+A.B.C. Engineering   College
+
+Ccnsohdared l\lla1k  Statemenr
+
+Roll No.:  201201001    Name:  Arun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+,i'.)Done                                                                                                                                                                        ]   My Computer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARANBI  AP (SS) I CSE I REC - 59
+Create  a program  in Java using sockets to implement  the HTTP
+request. PROGRAM: HTTPRequest.java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader; import java.io.OutputStream; import  java.io.PrintWriter;
+import  java.net.Socket;
+
+public class HTTPRequest
+{
+public static void main(String[] args)
+{
+String host=  "www.rajalakshmi.org";
+try
+{
+Socket socket= new Socket(host,    80); OutputStream os = socket.getOutputStream(); boolean autoflush = true;
+PrintWriter  out=  new
+PrintWriter(socket.getOutputStream(),     autoflush); BufferedReader in= new
+BufferedReader(new
+InputStreamReader(socket.getinputStream())     ); II    send an HTTP request to the web server out.println("GET   I   HTTPll.l");
+out.println("Host:    "+host+    ":80");
+out.println("Connection:     Close");
+out. println (  )  ;
+
+II    read the response boolean  loop=  true;
+StringBuilder  sb = new String8uilder(8096);
+while (loop)
+{
+if  (in.ready())
+{
+inti=  O;
+while (i  !=  -1)
+{
+i = in. read (   )   ;
+sb.append(  (char)   i);
+
+loop=  false;
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 60
+II    display the response to the out console System.out.println(sb.toString()       ); socket.close();
+
+catch (IOException e)
+{
+e.printStackTrace();
+
+
+
+
+
+
+OUTPUT
+
+C:\IPLAB>javac    HTTPRequest.java
+
+C:\IPLAB>java    HTTPRequest
+
+
+HTTP/1.1   200 OK Content-Length:    40514
+Content-Type:    text/html
+Content-Location:     http://www.rajalakshmi.org:80/index.html
+Last-Modified:     Fri,  25  Sep  2015  10:15:25    GMT Accept-Ranges:    bytes
+ETag:   "5f7 611187bf7d01:   4 OOe" Server:   Microsoft-IIS/6.0
+X-Powered-By:    ASP.NET
+Date:   Fri,  02  Oct 2015   07:55:40    GMT Connection:    close
+
+<!doctype   html>
+<html dir="ltr"   lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+</body>
+</html> C:\IPLAB>
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 61
+Create       a   program     in     Java     using       sockets       to     implement      the     FTP
+server       and    client.
+
+
+PROGRAM:
+
+FileServer.java
+
+
+import java.net.*;
+import java.io.*;
+
+public class FileServer
+public static void main(String []  args)  throws IOException
+ServerSocket servsock = new ServerSocket(l3267);
+while (true) { System.out.println("Waiting  ... "); Socket sock=  servsock.accept();
+System.out.println("Accepted   connection  :     "+   sock); File myFile = new File ("source.txt");
+byte []  mybytearray = new byte  [  (int)myFile.length()];
+FileinputStream   fis  = new FileinputStream(myFile); BufferedinputStream  bis=  new BufferedinputStream(fis); bis.read(mybytearray,O,mybytearray.length);
+OutputStream os = sock.getOutputStream();
+System.out.println("Sending  ... "); os.write(mybytearray,O,mybytearray.length); os. flush();
+sock.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 62
+FileClient.java
+
+import java.net.*;
+import java.io.*;
+
+public class FileClient{
+public static void main(String []  args)  throws IOException {
+int filesize=6022386;
+long start= System.currentTimeMillis();
+int bytesRead;
+int current= 0;
+Socket sock=  new Socket("l27.0.0.l",13267); System. out. println ("Connecting  ... ");
+byte []  mybytearray = new byte [filesize];
+InputStream is=  sock.getinputStream();
+FileOutputStream  fos=new  FileOutputStream("target.txt"); BufferedOutputStream  bos = new BufferedOutputStream(fos); bytesRead = is.read(mybytearray,O,mybytearray.length);
+current=  bytesRead;
+do
+{
+bytesRead = is.read(mybytearray,    current, mybytearray.length-current);
+if(bytesRead  >= 0)
+current+= bytesRead;
+while(bytesRead > -1); bos.write(mybytearray,    0,   current); bos. flush ();
+long end=  System.currentTimeMillis(); System.out.println(end-start);
+bos.close();
+sock.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 63
+OUTPUT: DOS:
+C:\IPLAB>copy  con source.txt
+FTP - Using Socket ... !
+"'Z
+
+
+SERVER:  (Terminal - 1)
+
+C:\IPLAB>javac  FileServer.java
+
+C:\IPLAB>java  FileServer
+Waiting...
+Accepted connection: Socket[addr=/127.0.0.l,port=2973,localport=13267] Sending  .
+Waiting  .
+"'C
+
+
+C:\IPLAB>
+
+CLIENT:   (Terminal - 2)
+
+C:\IPLAB>javac   FileClient.java
+
+C:\IPLAB>java   FileClient
+Connecting ...
+31
+
+C:\IPLAB>
+
+DOS:
+
+C:\IPLAB>type   source.txt
+FTP - Using Socket ... !
+
+C:\IPLAB>type   target.txt
+FTP - Using  Socket ... !
+
+C:\IPLAB>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 64
+Create a program  in Java for creating  simple chat application with datagram sockets and datagram packets.
+
+PROGRAM:
+
+UDP Server. j ava
+
+import java.io.*;
+import java.net.*;
+
+class UDPServer
+
+public static public static public static public static public static public static
+DatagramSocket serversocket; DatagramPacket dp; BufferedReader dis; InetAddress ia;
+byte buf[] = new byte[1024];
+int cport = 789,sport=790;
+
+public  static void main(String[]   a)  throws IOException
+{
+serversocket = new DatagramSocket(sport); dp = new DatagramPacket(buf,buf.length); dis=  new BufferedReader
+(new InputStreamReader(System.in)   ); ia = InetAddress.getLocalHost(); System.out.println("Server     is Running ... ");
+
+while(true)
+{
+serversocket.receive(dp);
+String str = new String(dp.getData(),     O,
+dp.getLength()   );
+if ( str. equals ("STOP")  )
+{
+System.out.println("Terminated     ... ");
+break;
+
+System.out.println("Client:     "+   str); String  strl = new String(dis.readLine()     ); buf = strl.getBytes();
+serversocket.send(new
+DatagramPacket(buf,strl.length(),        ia,  cport)  );
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 65
+UDPClient.java
+
+import java.io.*;
+import java.net.*;
+
+class UDPClient
+{
+public static public static public static public static public static public static
+DatagramSocket clientsocket; DatagramPacket dp; BufferedReader dis; InetAddress ia;
+byte buf[] = new byte[l024];
+int cport = 789,  sport=   790;
+
+public static void main(String[] a)  throws IOException
+{
+clientsocket  = new DatagramSocket(cport); dp = new DatagramPacket(buf, buf.length); dis=  new BufferedReader
+(new  InputStreamReader(System.in)    );
+ia = InetAddress.getLocalHost(); System.out.println("Client     is  Running ...
+Type 'STOP'  to Quit");
+
+while(true)
+{
+String str = new String(dis.readLine()   );
+buf = str.getBytes();
+if ( str. equals ("STOP")  )
+{
+System.out.println("Terminated    ... "); clientsocket.send(new DatagramPacket(buf,str.length(),     ia, sport));
+break;
+
+clientsocket.send(new   DatagramPacket(buf, str.length(),   ia,  sport)); clientsocket.receive(dp);
+String str2 = new String(dp.getData(),    O, dp.getLength()   );
+System.out.println("Server:     "+   str2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 66
+OUTPUT:
+
+SERVER:  (Terminal - 1)
+
+C:\IPLAB>javac  UDPServer.java
+
+C:\IPLAB>java  UDPServer Server is Running... Client:  Hello
+Welcome Terminated... C:\IPLAB>
+CLIENT:  (Terminal - 2)
+
+C:\IPLAB>javac   UDPClient.java
+
+C:\IPLAB>java  UDPClient
+
+Client  is Running ... Type  'STOP'  to Quit
+
+Hello
+
+Server:  Welcome
+
+STOP
+
+Terminated ... C:\IPLAB>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 67
+Write  a servlet  program  to display  a 'Wish  you happy birth day'  message on the client system.
+
+PROGRAM: Birthday. java
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+I**
+*  Servlet implementation  class Birthday
+*I
+@WebServlet("IBirthday")
+public class Birthday extends HttpServlet    {
+private static final  long seria1VersionUID =   lL;
+
+I**
+*   @see HttpServlet#doPost(HttpServletRequest   request,
+HttpServletResponse  response)
+*I
+protected void doGet(HttpServletRequest      request,
+HttpServletResponse    response)  throws ServletException, IOException   {
+II TODO Auto-generated   method stub
+response.setContentType("textlhtml");
+PrintWriter   out=  response.getWriter();
+out.println("Wish    You Happy Birthday ...  !");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 68
+OUTPUT:
+
+
+-------------------------------------""r.1.-f''::'l"i!''rx-
+
+W,d,1  Y011 H.tppy&thcby  I
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 69
+Create a dynamic HTML form that allows the user to enter the name of the city.  While submission  of this form,  the servlet retrieves  and  responses  the  weather  report  for  the  user entered city.
+
+
+PROGRAM: Database
+mysql> create database rmc;
+Query OK,  1 row affected (0.00  sec)
+
+mysql> use rmc; Database changed
+mysql> create  table forecast(
+-> city varchar(20),
+-> weather  int);
+Query OK,  0 rows affected  (0.08   sec)
+
+mysql> describe   forecast;
++---------+-------------+------+-----+---------+-------+
+I              Field   I             Type         I             Null I        Key  I             Default   I        Extra  I
++---------+-------------+------+-----+---------+-------+
+I               city     I              varchar ( 20) I              YES        I              NULL
+I              weather  I               int ( 11)      I              YES        I              NULL
++---------+-------------+------+-----+---------+-------+
+2 rows  in set (0.00  sec)
+
+mysql>  insert  into forecast  values ('Chennai',    30); Query OK,  1 row affected  (0.01  sec)
+
+mysql> insert into forecast values ('Kancheepuram',   28); Query OK,  1 row  affected (0.03  sec)
+
+mysql> select*  from forecast;
++--------------+---------+
+I             city         I            weather I
++--------------+---------+
+I               Chennai             30 I
+I             Kancheepuram  I                                                          28 I
++--------------+---------+
+2 rows  in set (0.01   sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 70
+index.html
+
+<!DOCTYPE  html>
+<html>
+<head>
+<meta charset="IS0-8859-1">
+<title>Weather Report</title>
+</head>
+<body>
+<img src= "rmchead. jpg">
+<form method="post"   action= "View">
+<hl>View Weather Report</hl> Enter the City:
+<input type= "text"   name= "city">
+<br>
+<input type= "submit"   value="Submit">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 71
+View. java
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+I**
+*   Servlet implementation class View
+*I
+@WebServlet("IView")
+public class View extends HttpServlet  {
+private static final long seria1VersionUID  lL;
+
+I**
+*  @see HttpServlet#doPost(HttpServletRequest request,
+HttpServletResponse response)
+*I
+protected void doPost(HttpServletRequest   request,
+HttpServletResponse   response)   throws ServletException,
+IOException  {
+II TODO Auto-generated  method stub
+response.setContentType("textlhtml");
+PrintWriter  out=  response.getWriter(); Connection conn= null; PreparedStatement   ps = null;
+ResultSet rs= null;
+try
+{
+Class. forName  ("com.  mysql. j dbc. Oriver"); String URL=  "jdbc:mysql:lllocalhost:3306lrmc";
+conn=  DriverManager.getConnection(URL,    "root",   "admin");
+ps = conn.prepareStatement("select     *  from forecast  where
+city=?");
+String city= request.getParameter("city");
+ps.setString(l,   city);
+rs= ps.executeQuery();
+out. println ( "<img src=' rmchead. j pg'>")  ;
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 72
+if(rs.next())
+{
+out.println("<center><h3>Weather   report</h3>
+</center>");
+out.println("<hr>");
+out.println("City   :" +   rs.getString(l)  );
+out.println("<br>");
+out.println("Current  Weather :"  +   rs.getString(2)  +
+"Celsius");
+out.println("<br>");
+
+else
+
+out.println("<center><h3>Sorry  ... City Information
+Not Found ... </h3></center>");
+
+out.println("<center><a  href='index.html'>BACK</a>
+</center>"); ps.close(); conn.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 73
+OUTPUT:
+
+
+-----------------------------------""r.1.-f''::'l"i!''rx-
+
+Regional Meteorological Centre
+
+
+View Weather  Report
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regional Meteorological Centre
+
+
+View  Weather  Report
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 74
+,                                                                        PNM
+
+
+Regional Meteorological Centre
+
+
+\\'r~U1rr  npot1
+
+cny0w: .....
+Cu,mtWealbtr30Cel=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rmrecrr
+
+
+Regional Meteorological Centre
+
+
+View  \Vei1ther  Report
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 75
+Create  an  address  book  servlet  that  allows  the  user  to register for several mailing  lists.  The address book contains firstname,   designation,    addressl,    address2,    City,   State, email id.  When email id is given,   it return an HTML page with all the information.
+
+PROGRAM: Database
+mysql> create database address;
+Query OK,  1 row affected (0.00  sec)
+
+mysql>  use address; Database changed
+mysql> create  table  contacts
+->  (firstname  varchar(20),
+-> designation  varchar(20),
+-> street varchar(20),
+-> locality  varchar(20),
+-> city varchar(20),
+-> state varchar(20),
+-> emailid  varchar(lOO),
+-> primary key(emailid)  );
+Query OK,  0 rows affected  (0.08   sec)
+
+mysql>  describe  contacts;
++-------------+--------------+------+-----+---------+-------+
+I                 Field        I               Type         I          Null I               Key I          Default  I                Extra  I
++-------------+--------------+------+-----+---------+-------+
+firstname     varchar(20)      YES          NULL
+designation   varchar(20)   YES          NULL
+street       varchar(20)   YES             NULL locality      varchar(20)   YES             NULL city         varchar(20)    YES         NULL state            varchar(20)   YES             NULL emailid      varchar(lOO)  NO     PRI
++-------------+--------------+------+-----+---------+-------+
+7 rows  in set (0.00  sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 76
+index.html
+
+<!DOCTYPE  html>
+<html>
+<head>
+<meta charset="IS0-8859-1">
+<title>Address Book</title>
+</head>
+<body>
+<img src= "addbook.  jpg">
+<br>
+<a href="add.html">Add   New Address</a>
+<a href="view.html      ">View Address</a>
+</body>
+</html>
+
+add.html
+
+<!DOCTYPE  html>
+<html>
+<head>
+<meta charset="IS0-8859-l"><title>Add</title>
+</head>
+<body>
+<form method="post"   action= "Add">
+<hl>Add New Address</hl>
+First  Name :
+<input type= "text"    name= "firstname  ">
+<br>
+Designation  :
+<input type= "text"     name="designation">
+<br>
+Street
+<input type= "text"    name= "street">
+<br>
+Locality:
+<input type="text"   name="locality">
+<br>
+City:
+<input type= "text"     name= "city">
+<br> State  :
+<input type="text"   name="state">
+<br>
+Email Id :
+<input type= "text"      name="emailid">
+<br>
+<input type= "submit"     value= "Submit">
+</form>
+</body>
+</html>
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 77
+view.html
+
+<!DOCTYPE  html>
+<html>
+<head>
+<meta charset="IS0-8859-1">
+<title>View</title>
+</head>
+<body>
+<form method= "post"   action= "View">
+<hl>View Address</hl> Email Id :
+<input type= "text"    name= "email   id">
+<br>
+<input type= "submit"   value="Submit">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 78
+Add. java
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+I**
+*  Servlet  implementation   class Add
+*I
+@WebServlet("IAdd")
+public class Add extends HttpServlet  {
+private static final long seria1VersionUID  lL;
+
+I**
+*  @see  HttpServlet#doPost(HttpServletRequest   request,
+HttpServletResponse   response)
+*I
+protected void doPost(HttpServletRequest    request,
+HttpServletResponse   response)  throws ServletException, IOException  {
+II TODO Auto-generated method stub
+response.setContentType("textlhtml"); PrintWriter  out   response.getWriter();
+
+Connection conn  null; PreparedStatement   ps = null; try
+{
+Class. forName   ("com.  mysql. j dbc. Ori ver");
+String URL=  "jdbc:mysql:lllocalhost:3306laddress";
+conn=  DriverManager.getConnection(URL,    "root",   "admin");
+ps = conn.prepareStatement("insert     into contacts values (?,       ?,    ?,    ?,    ?,    ?,    ?)");
+String firstname = request.getParameter("firstname"); String designation=  request.getParameter("designation"); String streeet = request.getParameter("street");
+String locality= request.getParameter("locality"); String city= request.getParameter("city");
+String state=  request.getParameter("state"); String emailid = request.getParameter("emailid"); ps.setString(l,   firstname);
+ps.setString(2,    designation);
+ps.setString(3,    streeet);
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 79
+ps.setString(4,   locality); ps.setString(5,  city); ps.setString(6,  state); ps.setString(7,  emailid); ps.executeUpdate();
+out.println("<img  src='addbook.jpg'>");
+out.println("<center><h3>New  Address Added Successfully
+</h3></center>");
+out.println("<center><a  href='index.html'>HOME</a>
+</center>");
+ps.close(); conn.close(); ps.close(); conn.close();
+}
+catch(Exception  e)
+{
+out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 80
+View. java
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+I**
+*   Servlet implementation class View
+*I
+@WebServlet("IView")
+public class View extends HttpServlet  {
+private static final long seria1VersionUID  lL;
+
+I**
+*  @see HttpServlet#doPost(HttpServletRequest request,
+HttpServletResponse response)
+*I
+protected void doPost(HttpServletRequest   request,
+HttpServletResponse   response)   throws ServletException,
+IOException  {
+II TODO Auto-generated  method stub
+response.setContentType("textlhtml");
+PrintWriter  out=  response.getWriter(); Connection conn= null; PreparedStatement   ps = null;
+ResultSet rs= null;
+try
+{
+Class. forName  ("com.  mysql. j dbc. Oriver");
+String URL=  "jdbc:mysql:lllocalhost:3306laddress";
+conn=  DriverManager.getConnection(URL,    "root",   "admin");
+ps = conn.prepareStatement("select     *   from contacts where
+emailid = ?");
+String emailid = request.getParameter("emailid");
+ps.setString(l,   emailid);
+rs= ps.executeQuery();
+out.println("<img   src='addbook.jpg'>");
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 81
+if(rs.next())
+{
+out.println("<center><h3>Address  Book Information
+</h3></center>");
+out.println("<hr>");
+out.println("First  Name :"  +   rs.getString(l)   );
+out.println("<br>");
+out.println("Designation   :"  +   rs.getString(2)   );
+out.println("<br>");
+out.println("Street   :"  +   rs.getString(3)   );
+out.println("<br>");
+out.println("Locality   :" +   rs.getString(4)    );
+out.println("<br>");
+out.println("City   :" +   rs.getString(5)  );
+out.println("<br>");
+out.println("State    :" +   rs.getString(6)   );
+out.println("<br>");
+out. println ( "Emai 1 Id.  ·"  +   rs. getString ( 7) )  ;
+out.println("<br>");
+
+else
+
+out.println("<center><h3>Sorry   ...  Address Book
+Information  Not Found ... </h3></center>");
+
+out.println("<center><a   href='index.html'>HOME</a>
+</center>");
+ps.close(); conn.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 82
+OUTPUT:
+---------------------------------------""r.1.-f''::'l"i!''rx- Address Book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Add  New Address
+
+f.tnNltM  .                                  ,
+O"""MbOII
+S1ru1                                          
+i..,.i.,                               
+0,1y
+
+E.rnwld
+Submll
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 83
+e
+
+Add  New Address
+
+F:irn1'11tn('   ~ttwlr*"
+O~bon       A~1:J.-tl Pt*t.'.IOI Sirt.eil79~•
+~c~       Pilft1e1   P.i1y•m
+c;iy  k..nl:lt1•r,pu1-..n1
+
+I  Slbm~I
+
+:.=·=~'--.,.--.. ,<@•g,,,--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Address Book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 84
+..........
+e
+
+Address Book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  -c
+
+View Address
+
+.....iwL
+Soonul
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 85
+e
+
+View  Address
+
+Em,,! Id  """""9"''°1m.. '""
+Sutmulj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Address Book
+
+
+Aeld:1y,:s   Book   lufcu,n\4linn
+
+Frn  N_.... fl.huw.w1 .. cwwiin
+Ou~           ..Alwt.ar.1Profr.uor
+s.-... 179 Kruhoao!:lne1
+Loe.in,. N.wy..- v..i.,,...
+Cny ..K~bec-pinm
+Sift'  Tllr.'IIIN1du
+&u.lld.   bl,N.._,@,,,ad,om
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 86
+..........
+
+
+Address Book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 87
+Write a Java Server Page program  to find the simple interest. Test  this by a client  program  to get  the form  data  inputs (Principal amount,  rate of interest, periods)  and display the result(SI=(P*N*R)/100).
+
+
+PROGRAM:
+
+index.html
+
+
+<!DOCTYPE   html>
+<html>
+<head>
+<meta charset="IS0-8859-1">
+<title>Simple  Interest</title>
+</head>
+<body>
+<form  method="post"   action="si.jsp">
+<hl>Simple  Interest  Calculation</hl> Enter  the Principle  Amount  :
+<input  type= "text"  name= "p">
+<br>
+Enter  the Number of Years  :
+<input  type="text"   name="n">
+<br>
+Enter the Rate of Interest  :
+<input  type= "text"  name= "r">
+<br>
+<input  type= "submit" value= "Submit">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 88
+si.   jsp
+
+
+<%@ page language="java"  contentType="text/html;
+charset=IS0-8859-1" pageEncoding="IS0-8859-1"%
+<!DOCTYPE  html P1-BLIC "-//W3C//DTD HTML 4.01  Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"  content="text/html;
+charset=IS0-8859-1">
+<title>Simple Interest</title>
+</head>
+<body>
+<hl>Simple Interest</hl>
+<%
+double p        Double.valueOf(request.getParameter("p")      ); double n   Double.valueOf(request.getParameter("n")      ); doubler     Double.valueOf(request.getParameter("r")      );
+double si = (p *  n *  r)  I   100.0;
+%>
+Principle  Amount :    <%=p%>
+<br>
+Number  of Years  :    <%=n%>
+<br>
+Rate of Interest  :    <%=r%>
+<br>
+Simple Interest :    <%=si%>
+<br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 89
+OUTPUT:
+
+"'.,...,,........,
+
+
+-  ---------------------------------------------""r.1.-f''::'l"i!''rx-
+
+Simple  Interest  Calculation
+
+E."ltcr!ht Prwiplt  A.!ftClum     ~-----""' E,1ta tJi,: Numb" of Y4!lH Em.trtbthco!lmttcr.   ------
+Sub'""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Simple  Interest  Calculation
+
+E,u,r <lie l'M,..i, -           l(IXIO E,1ll'f u~ Numbn ofY,_.,  Ml
+l!nttr the lu1,t<4llllmn     24
+, Submn)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 90
+e
+
+Simple  Interest
+
+P.na.. ,pl"A" ,ooi.a  100000
+Numb,erofYt:,H     11)0
+Ri,111  of lntei l"l-1    24 0
+~1t  Inttcl'f':.t   ~000  0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 91
+Create      a    Servlet      program for      Session        tracking        using     hidden form    fields.
+
+
+PROGRAM:
+
+Login.html
+
+
+<!DOCTYPE   html>
+<html>
+<head>
+<meta  charset="IS0-8859-1">
+<title>Login</title>
+</head>
+<body>
+<form  method =   "post  II       action =   "Login    11>
+User Name  :
+<input type =     "text"     name  =     "uname"    />
+<br />
+Password :
+<input  type
+<br />
+<input  type
+</form>
+</body>
+</html>
+"password"     name =     "passwd"    />
+
+"submit"    value =   "Login"     />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 92
+Login.java
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import  javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+* Servlet implementation  class Login
+*/
+@WebServlet("/Login")
+public class Login extends HttpServlet  {
+private static  final long serialVersionUID   lL;
+
+/**
+*  @see HttpServlet#doPost(HttpServletRequest     request,
+HttpServletResponse   response)
+*/
+protected void doPost(HttpServletRequest    request,
+HttpServletResponse   response)   throws
+ServletException,    IOException
+II    TODO Auto-generated   method stub
+try{
+response.setContentType("text/html"); PrintWriter  out=  response.getWriter();
+
+String name=  request.getParameter("uname");
+out.print("Welcome"     +   name);
+
+//creating  form that have invisible   textfield out.print("<form    method=  'post'
+action=   'Display'>");
+out.print("<input    type=  'hidden'   name value = '"+    name +" '>");
+out.print("<input   type=  'submit'
+value=   'Display'>"); out.print("</form>"); out.close();
+
+catch(Exception e){ System.out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 93
+'uname'
+Display.   j ava
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import  javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+* Servlet implementation class Display
+*/
+@WebServlet("/Display")
+public class Display  extends HttpServlet   {
+private static final long serialVersionUID   lL;
+
+/**
+*  @see HttpServlet#doPost(HttpServletRequest    request,
+HttpServletResponse   response)
+*/
+protected void doPost(HttpServletRequest   request,
+HttpServletResponse response)   throws
+ServletException,  IOException
+II    TODO Auto-generated method stub
+try{
+response.setContentType("text/html");
+PrintWriter  out=  response.getWriter();
+
+//Getting the value  from the hidden  field String n=request.getParameter("uname"); out.print("Hello    "+n);
+
+out.close();
+
+catch(Exception  e) { System.out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 94
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.(-                                                                                                                                                                                                                                                                                                                                                           .l         -        eo        •
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 95
+
+
+
+tM••
+
+Wt>lr-oi11,.bl1uv..n
+1)11..l'l.ry
+
+
+
+-                                                                                                                               -                                                                                                          -                                                                               -                            -           !IMIW
+' .,  =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-                                                                                                                                                                                                                                                                  I.&.           r-·~1.,.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN BI AP (SS) I CSE I REC - 96
+Create        a    Servlet         program     for      Session       tracking       using       Session tracking      for     a  hit      count.
+
+
+PROGRAM:
+
+PageHitCounte.rjava
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletConfig; import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; I**
+*  Servlet implementation   class PageHitCounter
+*I
+@WebServlet("IPageHitCounter")
+public  class PageHitCounter  extends HttpServlet
+private static final long serialVersionUID    lL;
+private int hitCount;
+I**
+*  @see Servlet#init(ServletConfig)
+*I
+public  void init(ServletConfig   config)  throws
+ServletException   {
+II TODO Auto-generated  method  stub
+II Reset  hit counter.
+hitCount  = 0;
+
+I**
+*  @see HttpServlet#doGet(HttpServletRequest   request,
+HttpServletResponse  response)
+*I
+protected void doGet(HttpServletRequest request,
+HttpServletResponse response)  throws
+ServletException,  IOException
+II TODO Auto-generated method stub
+II Set response content type
+response.setContentType("textlhtml");
+II This method executes whenever  the servlet  is hit
+II increment hitCount
+hitCount++;
+PrintWriter out=  response.getWriter();
+String title=  "Total Number of Hits"; out.println("<html><body>"); out.println("<hl>"   +title+   "<lhl>"); out.println("<h2>"   + hitCount + "<lh2>"); out.println("<lbody><lhtml>");
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 97
+OUTPUT:
+
+IMw.-   Yo...--         ....            ,          ..  ..._     ..........           ,         •   \
+
+
+
+IJ.       '-         115'   I         lil
++-         c     looJh,,,a                                             fff
+Total Number  of Hits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 98
+Create     a    Servlet      program for      Session       tracking       using       Session objects.
+
+
+PROGRAM:
+
+Login.html
+
+
+<!DOCTYPE   html>
+<html>
+<head>
+<meta  charset="IS0-8859-1">
+<title>Login</title>
+</head>
+<body>
+<form  method =   "post  II       action =   "Login    11>
+User Name  :
+<input type =     "text"     name  =     "uname"    />
+<br />
+Password :
+<input  type
+<br />
+<input  type
+</form>
+</body>
+</html>
+"password"     name =     "passwd"    />
+
+"submit"    value =   "Login"     />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 99
+Login.java
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import javax.servlet.http.HttpSession;
+
+I**
+*  Servlet implementation class Login
+*I
+@WebServlet("ILogin")
+public  class Login extends  HttpServlet   {
+private static final long serialVersionUID   lL;
+
+I**
+*  @see HttpServlet#doPost(HttpServletRequest      request,
+HttpServletResponse    response)
+*I
+protected void doPost(HttpServletRequest  request,
+HttpServletResponse response)   throws
+ServletException,  IOException
+II  TODO Auto-generated  method  stub
+try{
+response.setContentType("textlhtml"); PrintWriter  out=  response.getWriter();
+
+String name=  request.getParameter("uname");
+out.print("Welcome"      +   name);
+
+HttpSession  session=request.getSession();
+session.setAttribute("uname",name);
+
+out.print("<a   href = 'Display'>Display<la>");
+
+out.close();
+
+catch(Exception  e){ System.out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 100
+Display.   j ava
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import  javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import javax.servlet.http.HttpSession;
+
+I**
+*  Servlet implementation class Display
+*I
+@WebServlet("IDisplay")
+public  class Display  extends HttpServlet   {
+private  static final long serialVersionUID   lL;
+
+I**
+*  @see HttpServlet#doPost(HttpServletRequest      request,
+HttpServletResponse   response)
+*I
+protected void doGet(HttpServletRequest  request,
+HttpServletResponse response)   throws
+ServletException,  IOException
+II  TODO Auto-generated  method  stub
+try{
+response.setContentType("textlhtml"); PrintWriter  out=  response.getWriter();
+
+HttpSession  session=request.getSession(false); String name
+(String)session.getAttribute("uname"); out.print("Hello"    +   name); out.close();
+
+catch(Exception  e) { System.out.println(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 101
+OUTPUT:
+
+tM•,.   ,,........_..                      .(..                                                                                                                                                                                                                                                                                                                                                       I.I.           -'     fll        A
++-        c  .. kx:.h,;1
+usee Name ,_I                                             _,
+P.uiword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.(-                                                                                                                                                                                                                                                                                                                                                           .l         -        eo        •
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN B I AP (SS) I CSE I REC - 102
+tM••                                                  - -                                                                                                                               -                                                                                                          -                                                                               -                            -           !IMIW
++-                                                                                                                                                                                                                                                                                                        ' .,  =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.(-                                                                                                                                                                                                                                                                                              IJ.       r-·11111"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN B I AP (SS) I CSE I REC - 103
+Create a program  to change the content of the web page using AJAX.   (or) Create  a program  in AJAX  using  Javascript,   DHTML and the XMLHttpRequest  object  to perform  a GET or POST and return a result without reloading the HTML page.
+
+
+PROGRAM: Hello.html
+<!DOCTYPE   html>
+<html>
+<head>
+<meta charset="IS0-8859-1">
+<title>Hello  AJAX</title>
+<script>
+function loadXMLDoc()
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+{
+xmlhttp=new  XMLHttpRequest();
+
+else
+
+xmlhttp=new  ActiveXObject("Microsoft.XMLHTTP");
+
+
+xmlhttp.onreadystatechange=function()
+{
+if (xmlhttp.readyState==4     && xmlhttp.status==200)
+
+
+document.getElementByid("myDiv")       .innerHTML
+xmlhttp.responseText;
+
+
+
+xmlhttp.open("GET","rec.txt",true);
+xmlhttp.  send ();
+
+</script>
+</head>
+<body>
+<div id="myDiv"><h2>Welcome</h2></div>
+<button type= "but   ton"  oncl ick=" loadXMLDoc (   )  "> Get Message
+</button>
+</body>
+</html>
+
+rec.txt
+
+Hello Ajax World
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 104
+OUTPUT:
+
+
+Helo AJA)(                                  x
+C   L localhost &.'S'•A-ielloAJAX,H:llo.html
+
+Welcome
+
+Get Message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[']  HeloAJAX                                                                                                                                                                                           -"'~~      
+C   '.J localhost 8080,H:lloAJAX~llo.html                                                                                       '{;]  -
+Hello Ajax World
+J    Get Message j
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 105
+Create a program to implement  the concept of asynchronous  java script XML for webpage login process.
+
+PROGRAM: Login.html
+<!OOCTYPE   html>
+<html>
+<head>
+<meta charset="IS0-8859-1">
+<title>Login</title>
+<script>
+function postRequest(strURL)
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+
+xmlhttp=new  XMLHttpRequest();
+
+else
+
+xmlhttp=new  ActiveXObject("Microsoft.XMLHTTP");
+
+
+
+xmlhttp.onreadystatechange=function()
+{
+if (xmlhttp.readyState==4     && xmlhttp.status==200)
+
+
+updatePage(xmlhttp.responseText);
+
+
+
+xmlhttp. open ("GET",    strURL,   true);
+xmlhttp.send(strURL);
+
+
+
+function updatePage(str)
+
+if(str   == "yes")
+{
+alert("Welcome     User");
+
+else
+
+alert ( "Invalid  Login!   Please try again!");
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 106
+function calllogin()
+{
+var username = window.document.frmlogin.username.value;
+var password= window.document.frmlogin.password.value;
+var url = "Login?username="+username+"&password="  + password;
+postRequest(url);
+}
+</script>
+</head>
+<body>
+<form name="frmlogin"       onsubmit="return  calllogin()">
+<hl>Login</hl> User Name :
+<input type= "text"     name= "username    ">
+Password :
+<input type= "password"    name= "password">
+<input type= "submit"     value="Login">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 107
+Login.java
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+I**
+*  Servlet implementation  class Login
+*I
+@WebServlet("ILogin")
+public class Login extends HttpServlet  {
+private static final long seria1VersionUID    lL;
+
+I**
+*  @see  HttpServlet#doGet(HttpServletRequest     request,
+HttpServletResponse    response)
+*I
+protected void doGet(HttpServletRequest     request,
+HttpServletResponse    response)   throws ServletException,
+IOException   {
+II TODO Auto-generated   method stub
+response.setContentType("textlhtml"); PrintWriter   out   response.getWriter();
+
+String  username    request.getParameter("username"); String  password    request.getParameter("password"); if(username.equals("admin")        && password.equals("admin"))
+out.print("yes");
+else
+
+out.print("no");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 108
+OUTPUT:
+
+    ......                               -  ---------------------------------------------""r.1.-f''::'l"i!''rx-
+
+Login
+
+UscrNa~m-t   ----Pu,-d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PatrW(lfd ......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN B I AP (SS) I CSE I REC - 109
+.....
+x
+
+Lo~in
+
+Ptf1'W<lrd ......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+....                                                                                                                                                                                                                                                                                                                    '"         -I'll''          ll
+
+
+
+
+Pu,wwd     .....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN BI AP (SS) I CSE I REC - 110
+.....
+
+
+Lo~in
+
+Ptf1'W<ll"d .....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESW ARAN B I AP (SS) I CSE I REC - 111
+Create  a SOAP based web service  for a simple Java Calculator class with operations  'add'  and  'subtract' and then create a web  service  client  which  then consumes  the web  service  and displays the result of the invoked web service.
+
+
+PROGRAM: Calculator.java
+package org.rajalakshmi.webservices.calc;
+
+import javax.jws.WebService;
+
+@WebService
+public class Calculator
+
+public int add(int  a,  int b)
+{
+return  ( a   +  b )   ;
+
+
+
+public int sub(int  a,  int b)
+{
+return  ( a   -   b)   ;
+
+
+
+
+
+CalcEndPointPublisher.java
+
+package org.rajalakshmi.webservices.calc;
+
+import javax.xml.ws.Endpoint;
+
+public class CalcEndPointPublisher
+
+public static void main(String[]  args) II    TODO Auto-generated method stub Endpoint.pub1ish("http:lllocalhost:8080ICalcWSICalculator",
+new Calculator());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  B I AP (SS) I CSE I REC  - 112
+OUTPUT:
+
+
+
+
+
+r..>,ll•lwd     by.,    ...   .,     JS••   •11,    l"•           ...,,,   ......   _..._    '1   •   -•••-      t•    '11    l'!t  tJ   J.J.4      l>OI,
+
+
+•<rif'fu111,01111 ..,1_,_         ......   '-'-P•l/~.o..~·~•·Ol'.•'             ...    ,too-t1011-.1a-!00401-----,c-ur"\.\lt1L.y-1.0.11•o:I'"             .o.•ln••••p•"ht1,p1//11v11.v'l.~1:~/         ... l••·p(lltoi"
+••IJtS   --,.,       J••aiu.p:   ,,91;,.._..-.1~·••9'-'JOl>4                      'Ol'/p1>lie,-•    -1   ...    -·1isu.p:/1.....,. •..,.c,,c9'JOO"/OSl..docl~•••l"'J/-t.ackt.•"            v.1,..,      ao"Jl""linpi//•~ll•""'•·-h•c;,•fl·Or',1/•ltdU•o•p/"
+~-,-,._-         ..-;•'-'-P•ll••'"'·-1>1,•,..,,,t"••·.-•J•h•~•.(lt9!•                    ••t-1••<1-"lr,tt-p://-..fl).oc-9,JOOlll:nScb@_                     ..   ••l••"llu.p://.ot.«-•.uol•o•p.,u,(l/••1.111"
+,,.,1;1et.tl-•r..--·"t1L-p://c•lo.9"'-9e1v,.....-.1•J•l~-•·••9-'•   ·.::at¢11la",o-'krv1.e•'">
+.. <.. oi;_.,_,,.
+<ad;ari,on     ..    -.,-c.-r-'".l;\I.JH//c.J.c:.~lc.:c:s,uua1.a:.-=..ol'1il/-            a:~wr-1:r,1,1,.p://ioi:allllrUr.:IOtO/C:•U,Q/CeJ.cr1U,111;ol7J1•G"'l"/>
+<IMC!~
+•<-•...... _.-.ai;a-,.
+J1,U1,     ----11:M. ...  "L<U•'" e.J...a..•-...-;--     >
+<J•••-.r,.>
+<aiui•~ ._.....
+
+"..odAe••o       >
+<~\     --·,u--i.u::•-        i.••u.,;..a,,e_.,....•J•
+<1-•••qe>
+14.,.P,,,'(!1l1t1.'t~.)-,••p.111r~    ..~·  *'l-t1•_t_!,••,
+Y    W$Jll"CJf"     ..-,-"l'd)Rf'SIIONI!'      ..>
+,_., ...".,.'9'-"..-·,,...c:....e~.:,"     .. 1._....  -.....1~,..~-  >
+•   p01t1'f'll"'   --·r-.11:111..,.1•
+I'   4fol~""'    1-     _...       ..-1,d",o
+t1•1•"-' -11,          •  l..,.."htt11//e.l~.-"-tvl¢ir•·u•J•l•IL•._1.•r9,c.1e11l••_..,./.W,..q..-.1.•     -~··t.,.,-'d"/'
+v• ""'   •-!.lrt t1111,••1o-,  t-pt//c•l~   ......   --•r-.t•J•l....,...1.•1.,J~•le-•l•t•r/....,,_.,.,...~·· ..  1....,.a,.. .,pc,._..•1,
+
+•u,r11-1   --1&,,• l••"t.ti,1//eal•           ..,......•1•1.--.1•J•ltok•._1.•..-v'!"•l••h•-t>r/•*'~._.•,•       -••,..,.••t,.•1••" >
+...... ,1,.t.     ..  _,1         1.......h.t...,,i,1c•I•  . ...._•.,,•     .-f!c_,,,.1~   ... , .•• -,c.1e-11l•t•,1••..,.,,.       ....   _ •• ..,..- ...
+.,....,,.,     lo•>
+,,... ,.  T\111• ~
+.. 1Utidlt\f..--~..1 •• 1.,e-,Por1.-a,_.,.,.   trr•··u   .. ,c.1 ..  1••0.1•,
+•°"'111t-1•.H.   u-.-,o,,·••ttrt//-e-.......,.-1-.,    ....,.  -·,••11.-p• n,,   •••
+..,Q,-1.•iic,a
+...   ,10Mt•c..tvo...,.,..u_.--    >
+•   Ul.o..J.ll.i,~,l1>  1,0,1, ..... •ut.uU"J>
+"'lft.lllil>
+•     OVl.llli~;.
+C.O•PllliM~if••"lnu•&"/>
+Cla\l\,IJU
+
+.(-                                                                                                                                                                                                                       •:         -·10•       "
+o•
+
+
+
+
+Sffl'lttl~nt iboplli:.•wtt«-Mtn,~ot~C....Sfl'Yltt
+01t1pHcMWft.rff"lttt1•,....."°'-.tC      ..       °'P'Jf1
+llnp/fl«al\tl"8080CM'WSJCll)(III.Mor
+~g;ijQ89((,'4;\1J''./!,'11,yt..u~cb.wll
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUVANESWARAN B I AP (SS) I CSE I REC - 113
+PROGRAM: CalcClient.java
+package org.rajalakshmi.webservices.calc.client;
+
+import org.rajalakshmi.webservices.calc.Calculator;
+import org.rajalakshmi.webservices.calc.CalculatorService;
+
+public class CalcClient  {
+
+public static void main(String[]  args)
+II    TODO Auto-generated  method stub
+int a=      10;
+int b =   20;
+CalculatorService    calcService  =  new CalculatorService(); Calculator  calc =   calcService.getCalculatorPort(); System.out.println(a     +"   +"   + b +"      "+   calc.add(a,     b) ); System.out.println(a    +"   - "+   b + "="    + calc.sub(a,     b) );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  BI  AP (SS) I CSE I REC  - 114
+OUTPUT:
+
+10  + 20   30
+10 - 20   -10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BHUV ANESW ARAN  B I AP (SS) I CSE  I REC  - 115
+

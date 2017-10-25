@@ -1,0 +1,935 @@
+Rajalakshmi  Engineering  College
+Rajalakshmi Nagar,  Thandalam, Chennai-  602    105
+Department  of Computer Science and  Engineering
+
+
+
+
+
+JSP - MySQL Connectivity Library    Application User  Manual
+(Windows Operating   System)
+
+
+
+
+
+Prepared  by:
+B.BHUVANESWARAN Assistant  Professor  (SS) I CSE I REC bhuvaneswaran@rajalaltshmi.edu.in
+QUESTION
+
+
+
+Develop a web application for a Library Management System using JSP. Use cookies as part of the web application and perform appropriate validations. Document the functional requirements you are considering.
+
+Create relations using MYSQL given below enforcing primary key and foreign key constraints: BOOK (ACCNO, TITLE, AUTHOR, PUBLISHER, EDITION, PRICE)
+MEMBER (MID, MNAME, BRANCH) FINE (MID, FINE_DATE, AMOUNT) The primary keys are underlined.
+Develop a JSP application using database connectivity to list all records from the above relations and illustrate a join query and an update operation.
+MySQL
+
+
+
+1.   Open MySQL.
+
+2.   Create a database.
+
+mysql> create database library; Query OK, 1 row affected (0.02 sec)
+
+3.   Connect to the database.
+
+mysql> use library; Database changed
+
+4.   Create the following tables:
+
+mysql> create table book (accno integer, title varchar(20),
+-> author varchar(20), publisher varchar(20),
+-> edition integer, price integer, primary key (accno));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create table member (mid integer, mname varchar(20),
+-> branch varchar(20), primary key (mid)); Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table fine (mid integer references member(mid),
+-> fine_date date, amount integer); Query OK, 0 rows affected (0.06 sec)
+
+5.   Display the tables.
+
+mysql> show tables;
++-------------------+
+| Tables_in_library |
++-------------------+
+| book              |
+| fine              |
+| member            |
++-------------------+
+3 rows in set (0.01 sec)
+6.   Display the table structure.
+
+mysql> describe book;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| accno     | int(11)    | NO  | PRI | 0      |      |
+| title     | varchar(20) | YES |    | NULL   |      |
+| author    | varchar(20) | YES |    | NULL   |      |
+| publisher | varchar(20) | YES |    | NULL   |      |
+| edition   | int(11)    | YES |    | NULL   |      |
+| price     | int(11)    | YES |    | NULL   |      |
++-----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> describe member;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type       | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| mid    | int(11)    | NO  | PRI | 0      |      |
+| mname  | varchar(20) | YES |    | NULL   |      |
+| branch | varchar(20) | YES |    | NULL   |      |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> describe fine;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type   | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| mid       | int(11) | YES |    | NULL   |      |
+| fine_date | date   | YES |    | NULL   |      |
+| amount    | int(11) | YES |    | NULL   |      |
++-----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+7.   Insert rows in the table.
+
+mysql> insert into book values (1, 'C', 'Balagurusamy', 'Tata', 3, 200); Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into book values (2, 'C++', 'Balagurusamy', 'Tata', 4,
+300);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into book values (3, 'DS', 'Weiss', 'Pearson', 3, 250); Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into book values (4,'Internet','Deitel','Pearson',3, 500); Query OK, 1 row affected (0.02 sec)
+mysql> insert into book values (5, 'Java', 'Arun', 'Pearson', 3, 400);
+Query OK, 1 row affected (0.03 sec)
+mysql> insert into member values (1, 'Arun', 'BIOMED'); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into member values (2, 'Babu', 'BIOMED'); Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into member values (3, 'Chithra', 'BIOMED'); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into fine values (1, '2014-04-21', 100); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into fine values (2, '2014-04-21', 200); Query OK, 1 row affected (0.03 sec)
+
+8.   Display the records from the table.
+
+mysql> select * from book;
++-------+----------+--------------+-----------+---------+-------+
+| accno | title   | author      | publisher | edition | price |
++-------+----------+--------------+-----------+---------+-------+
+|     1 | C        | Balagurusamy | Tata     |      3 |  200 |
+|     2 | C++      | Balagurusamy | Tata     |      4 |  300 |
+|     3 | DS       | Weiss       | Pearson  |      3 |  250 |
+|     4 | Internet | Deitel      | Pearson  |      3 |  500 |
+|     5 | Java     | Arun        | Pearson  |      3 |  400 |
++-------+----------+--------------+-----------+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from member;
++-----+---------+--------+
+| mid | mname   | branch |
++-----+---------+--------+
+|   1 | Arun    | BIOMED |
+|   2 | Babu    | BIOMED |
+|   3 | Chithra | BIOMED |
++-----+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from fine;
++------+------------+--------+
+| mid  | fine_date | amount |
++------+------------+--------+
+|    1 | 2014-04-21 |   100 |
+|    2 | 2014-04-21 |   200 |
++------+------------+--------+
+2 rows in set (0.00 sec)
+JSP – MySQL – Connectivity
+Displaying Book Information
+
+1.   Open Eclipse
+
+2.   Select the Workspace.
+
+3.   Select File Æ New Æ Other.
+
+4.   Select Dynamic Web Project under Web.
+
+5.   Click Next.
+
+6.   Enter the Project name as LMS.
+
+7.   Choose Target runtime as Apache Tomcat v7.0.
+
+8.   Click Next.
+
+9.   Click Next.
+
+10. Click Finish.
+
+11. Click Yes for Open Associated Perspective?
+
+12. Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+13. Right Click Æ New Æ HTML File.
+
+14. Enter the File name as BookInfo.
+
+15. Click Next.
+
+16. Click Finish.
+
+17. Change the title as Book Info.
+
+18. Enter the following code inside the body tag:
+
+<form method="post" action="BookInfo.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Enter the Acc No.
+<input type="text" name="accno">
+<input type="submit" value="Get Details">
+</form>
+19. Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+20. Right Click Æ New Æ JSP File.
+
+21. Enter the File name as BookInfo.
+
+22. Click Next.
+
+23. Click Finish.
+
+24. Change the title as Book Info.
+
+25. Add the statement import=“java.sql.*” at the end of the page directive.
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+
+26. Enter the following code inside the body tag:
+
+<%
+Connection conn = null;
+PreparedStatement ps = null; ResultSet rs = null;
+%>
+
+27. Create a try...catch block inside the scriplet <% %>:
+
+try
+{
+}
+catch(Exception e)
+{
+out.println(e);
+}
+
+28. Enter the following statements inside the try block:
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+
+29. Select the file mysql-connector-java-5.1.29-bin.jar from your hard disk and press Ctrl+C to copy.
+
+30. Select LMS in the Package Explorer.
+
+31. Select WebContent Æ WEB-INF Æ lib.
+
+32. Press Ctrl+V to paste.
+33. Continue entering the following statements inside the try block:
+
+ps = conn.prepareStatement("select * from book where accno = ?"); String accno = request.getParameter("accno");
+ps.setString(1, accno);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Book Info</h3></center>");
+out.println("<hr>");
+out.println("Acc No. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Title :" + rs.getString(2));
+out.println("<br>");
+out.println("Author :" + rs.getString(3));
+out.println("<br>");
+out.println("Publisher :" + rs.getString(4));
+out.println("<br>");
+out.println("Edition :" + rs.getInt(5));
+out.println("<br>");
+out.println("price :" + rs.getInt(6));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+34. Right Click inside the Code Window of BookInfo.html.
+
+35. Select Run As Æ Run on Server.
+
+36. Select the Tomcat v7.0 Server at localhost.
+
+37. Click Next.
+
+38. Click Finish.
+
+39. It will open a browser window.
+
+40. Enter the Book Acc No. and click Get Details.
+
+41. The records will be displayed in browser window.
+
+42. The full source code for BookInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Library Management System</title>
+</head>
+<body>
+<form method="post" action="BookInfo.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Enter the Acc No.
+<input type="text" name="accno">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+
+43. The full source code for BookInfo.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Book Info</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select * from book where accno = ?"); String accno = request.getParameter("accno");
+ps.setString(1, accno); rs = ps.executeQuery(); if(rs.next())
+{
+out.println("<center><h3>Book Info</h3></center>");
+out.println("<hr>");
+out.println("Acc No. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Title :" + rs.getString(2));
+out.println("<br>");
+out.println("Author :" + rs.getString(3));
+out.println("<br>");
+out.println("Publisher :" + rs.getString(4));
+out.println("<br>");
+out.println("Edition :" + rs.getInt(5));
+out.println("<br>");
+out.println("price :" + rs.getInt(6));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Displaying Member Information
+
+
+1.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as MemberInfo.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Member Info.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="MemberInfo.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Enter the Member Id.
+<input type="text" name="mid">
+<input type="submit" value="Get Details">
+</form>
+
+8.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as MemberInfo.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Simply copy the entire code available in the BookInfo.jsp file paste into the file MemberInfo.jsp.
+
+14. Change the title as Member Info.
+
+15. Do the following modifications in the code:
+
+ps = conn.prepareStatement("select * from member where mid = ?"); String mid = request.getParameter("mid");
+ps.setString(1, mid);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Member Info</h3></center>");
+out.println("<hr>");
+out.println("Member Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Branch :" + rs.getString(3));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+16. Right Click inside the Code Window of MemberInfo.html.
+
+17. Select Run As Æ Run on Server.
+
+18. Select the Tomcat v7.0 Server at localhost.
+
+19. Click Next.
+
+20. Click Finish.
+
+21. It will open a browser window.
+
+22. Enter the Member Id. and click Get Details.
+
+23. The records will be displayed in browser window.
+
+24. The full source code for MemberInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Member Info</title>
+</head>
+<body>
+<form method="post" action="MemberInfo.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Enter the Member Id.
+<input type="text" name="mid">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+25. The full source code for MemberInfo.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Book Info</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select * from member where mid = ?"); String mid = request.getParameter("mid");
+ps.setString(1, mid);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Member Info</h3></center>");
+out.println("<hr>");
+out.println("Member Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Branch :" + rs.getString(3));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Displaying Fine Information
+
+
+1.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as FineInfo.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Fine Info.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="FineInfo.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Enter the Member Id.
+<input type="text" name="mid">
+<input type="submit" value="Get Details">
+</form>
+
+8.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as FineInfo.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Simply copy the entire code available in the BookInfo.jsp file paste into the file FineInfo.jsp.
+
+14. Change the title as Fine Info.
+
+15. Do the following modifications in the code:
+
+ps = conn.prepareStatement("select m.mid, m.mname, f.fine_date, f.amount from member m, fine f where m.mid = f.mid and f.mid = ?"); String mid = request.getParameter("mid");
+ps.setString(1, mid);
+rs = ps.executeQuery();
+out.println("<center><h3>Ind. Fine Info</h3></center>");
+out.println("<hr>");
+while(rs.next())
+{
+out.println("Member Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Date :" + rs.getString(3));
+out.println("<br>");
+out.println("Amount :" + rs.getString(4));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+16. Right Click inside the Code Window of FineInfo.html.
+
+17. Select Run As Æ Run on Server.
+
+18. Select the Tomcat v7.0 Server at localhost.
+
+19. Click Next.
+
+20. Click Finish.
+
+21. It will open a browser window.
+
+22. Enter the Member Id. and click Get Details.
+
+23. The records will be displayed in browser window.
+
+24. The full source code for FineInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Fine Info</title>
+</head>
+<body>
+<form method="post" action="FineInfo.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Enter the Member Id.
+<input type="text" name="mid">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+25. The full source code for FineInfo.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Fine Info</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select m.mid, m.mname, f.fine_date, f.amount from member m, fine f where m.mid = f.mid and f.mid = ?");
+String mid = request.getParameter("mid");
+ps.setString(1, mid);
+rs = ps.executeQuery();
+out.println("<center><h3>Ind. Fine Info</h3></center>");
+out.println("<hr>");
+while(rs.next())
+{
+out.println("Member Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+out.println("Date :" + rs.getString(3));
+out.println("<br>");
+out.println("Amount :" + rs.getString(4));
+out.println("<br>");
+} rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Inserting Book Information
+
+
+1.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as BookInfoAdd.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Book Info - Add.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="BookInfoAdd.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Acc. No.
+<input type="text" name="accno">
+<br> Title
+<input type="text" name="title">
+<br>
+Author
+<input type="text" name="author">
+<br> Publisher
+<input type="text" name="publisher">
+<br> Edition
+<input type="text" name="edition">
+<br>
+Price
+<input type="text" name="price">
+<br>
+<input type="submit" value="Add Details">
+</form>
+
+8.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as BookInfoAdd.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Change the title as Book Info - Add.
+
+14. Add the statement import=“java.sql.*” at the end of the page directive.
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+15. Enter the following code inside the body tag:
+
+<%
+Connection conn = null;
+PreparedStatement ps = null;
+%>
+
+16. Create a try...catch block inside the scriplet <% %>:
+
+try
+{
+}
+catch(Exception e)
+{
+out.println(e);
+}
+
+17. Enter the following statements inside the try block:
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+
+18. Continue entering the following statements inside the try block:
+
+ps = conn.prepareStatement("insert into book values (?,?,?,?,?,?)"); String accno = request.getParameter("accno");
+String title = request.getParameter("title");
+String author = request.getParameter("author");
+String publisher = request.getParameter("publisher");
+String edition = request.getParameter("edition"); String price = request.getParameter("price"); ps.setString(1, accno);
+ps.setString(2, title); ps.setString(3, author); ps.setString(4, publisher); ps.setString(5, edition); ps.setString(6, price); ps.executeUpdate();
+out.println("<center><h3>Book Details Added</h3></center>");
+ps.close();
+conn.close();
+19. Right Click inside the Code Window of BookInfoAdd.html.
+
+20. Select Run As Æ Run on Server.
+
+21. Select the Tomcat v7.0 Server at localhost.
+
+22. Click Next.
+
+23. Click Finish.
+
+24. It will open a browser window.
+
+25. Enter the Acc. No., Title, Author, Publisher, Edition, Price and click Add Details.
+
+26. The records inserted in MySQL database.
+
+27. The full source code for BookInfoAdd.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Book Info - Add</title>
+</head>
+<body>
+<form method="post" action="BookInfoAdd.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Acc. No.
+<input type="text" name="accno">
+<br> Title
+<input type="text" name="title">
+<br> Author
+<input type="text" name="author">
+<br>
+Publisher
+<input type="text" name="publisher">
+<br> Edition
+<input type="text" name="edition">
+<br>
+Price
+<input type="text" name="price">
+<br>
+<input type="submit" value="Add Details">
+</form>
+</body>
+</html>
+28. The full source code for BookInfoAdd.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Book Info - Add</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("insert into book values (?,?,?,?,?,?)");
+String accno = request.getParameter("accno"); String title = request.getParameter("title"); String author = request.getParameter("author");
+String publisher = request.getParameter("publisher"); String edition = request.getParameter("edition"); String price = request.getParameter("price"); ps.setString(1, accno);
+ps.setString(2, title); ps.setString(3, author); ps.setString(4, publisher); ps.setString(5, edition); ps.setString(6, price); ps.executeUpdate();
+out.println("<center><h3>Book Details Added</h3></center>");
+ps.close();
+conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+JSP – MySQL – Connectivity
+Inserting Member Information
+
+
+1.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as MemberInfoAdd.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Memebr Info - Add.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="MemberInfoAdd.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Member Id.
+<input type="text" name="mid"> Name
+<input type="text" name="mname">
+Branch
+<input type="text" name="branch">
+<input type="submit" value="Add Details">
+</form>
+
+8.   Select LMS Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ JSP File.
+
+10. Enter the File name as MemberInfoAdd.
+
+11. Click Next.
+
+12. Click Finish.
+
+13. Simply   copy   the   entire   code   available   in   the   BookInfoAdd.jsp   file   paste   into   the   file
+MemberInfoAdd.jsp.
+
+14. Change the title as Member Info - Add.
+
+15. Do the following modifications in the code:
+
+ps = conn.prepareStatement("insert into member values (?, ?, ?)");
+String mid = request.getParameter("mid"); String mname = request.getParameter("mname"); String branch = request.getParameter("branch"); ps.setString(1, mid);
+ps.setString(2, mname);
+ps.setString(3, branch);
+ps.executeUpdate();
+out.println("<center><h3>Member Details Added</h3></center>");
+ps.close();
+conn.close();
+
+16. Right Click inside the Code Window of MemberInfoAdd.html.
+
+17. Select Run As Æ Run on Server.
+
+18. Select the Tomcat v7.0 Server at localhost.
+
+19. Click Next.
+
+20. Click Finish.
+
+21. It will open a browser window.
+
+22. Enter the Member Id.., Name, Branch and click Add Details.
+
+23. The records inserted in MySQL database.
+
+24. The full source code for MemberInfoAdd.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Member Info - Add</title>
+</head>
+<body>
+<form method="post" action="MemberInfoAdd.jsp">
+<center>
+<h2>Library Management System</h2>
+</center>
+<hr>
+Member Id.
+<input type="text" name="mid">
+Name
+<input type="text" name="mname"> Branch
+<input type="text" name="branch">
+<input type="submit" value="Add Details">
+</form>
+</body>
+</html>
+25. The full source code for MemberInfoAdd.jsp is:
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Book Info - Add</title>
+</head>
+<body>
+<%
+Connection conn = null; PreparedStatement ps = null; try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/library";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("insert into member values (?, ?, ?)");
+String mid = request.getParameter("mid"); String mname = request.getParameter("mname"); String branch = request.getParameter("branch"); ps.setString(1, mid);
+ps.setString(2, mname);
+ps.setString(3, branch);
+ps.executeUpdate();
+out.println("<center><h3>Member Details Added</h3></center>");
+ps.close();
+conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+%>
+</body>
+</html>
+

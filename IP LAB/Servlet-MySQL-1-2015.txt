@@ -1,0 +1,895 @@
+Rajalakshmi  Engineering  College
+Rajalakshmi Nagar, Thandalam, Chennai- 602    105
+Department of Computer Science and Engineering
+
+
+
+
+
+Servlet   - MySQL Connectivity
+
+Banking Application
+
+User  Manual
+
+(Windows Operating  System)
+
+
+'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Prepared  by: B.BHUVANESWARAN
+Assistant  Professor  (SS) I CSE I REC
+bhuvaneswaran@rajalakshmi.edu.in
+QUESTION
+
+
+
+Create relations using MYSQL for a banking application given below enforcing primary key and foreign key constraints:
+
+CUSTOMER (CID, CNAME)
+
+ACCOUNT (ANO, ATYPE, BALANCE, CID)
+
+An account can be a savings account or a current account. Check ATYPE in ‘S’ or ‘C’. A customer can have both types of accounts.
+TRANSACTION (TID, ANO, TTYPE, TDATE, TAMOUNT) TTYPE can be ‘D’ or ‘W’
+D- Deposit; W – Withdrawal
+
+The primary keys are underlined.
+
+Develop a Java Servlet application using database connectivity to list all records from the above relations and illustrate a join query and an update operation.
+MySQL
+
+
+
+1.   Open MySQL.
+
+2.   Create a database.
+
+mysql> create database banking; Query OK, 1 row affected (0.05 sec)
+
+3.   Connect to the database.
+
+mysql> use banking; Database changed
+
+4.   Create the following tables:
+
+mysql> create table customer (cid integer, cname varchar(20),
+-> primary key (cid));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> create table account (ano integer, atype varchar(1),
+-> balance integer, cid integer references customer (cid),
+-> check (atype in ('S', 'C')), primary key (ano)); Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table transaction (tid integer,
+-> ano integer references account(ano),
+-> ttype varchar(1), adate date, tamount integer,
+-> check ttype in ('D', 'W'), primary key (tid)); Query OK, 0 rows affected (0.06 sec)
+
+5.   Display the tables.
+
+mysql> show tables;
++-------------------+
+| Tables_in_banking |
++-------------------+
+| account           |
+| customer          |
+| transaction      |
++-------------------+
+3 rows in set (0.00 sec)
+6.   Display the table structure.
+
+mysql> describe customer;
++-------+-------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| cid   | int(11)    | NO  | PRI | 0      |      |
+| cname | varchar(20) | YES |    | NULL   |      |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe account;
++---------+------------+------+-----+---------+-------+
+| Field   | Type      | Null | Key | Default | Extra |
++---------+------------+------+-----+---------+-------+
+| ano     | int(11)   | NO  | PRI | 0      |      |
+| atype   | varchar(1) | YES |    | NULL   |      |
+| balance | int(11)   | YES |    | NULL   |      |
+| cid     | int(11)   | YES |    | NULL   |      |
++---------+------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe transaction;
++---------+------------+------+-----+---------+-------+
+| Field   | Type      | Null | Key | Default | Extra |
++---------+------------+------+-----+---------+-------+
+| tid     | int(11)   | NO  | PRI | 0      |      |
+| ano     | int(11)   | YES |    | NULL   |      |
+| ttype   | varchar(1) | YES |    | NULL   |      |
+| adate   | date      | YES |    | NULL   |      |
+| tamount | int(11)   | YES |    | NULL   |      |
++---------+------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+7.   Insert rows in the table.
+
+mysql> insert into customer values (1, 'Arun'); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customer values (2, 'Babu'); Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values (3, 'Chithra'); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into account values (1, 'S', 1000, 1); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into account values (2, 'S', 2000, 2); Query OK, 1 row affected (0.03 sec)
+mysql> insert into account values (3, 'S', 1000, 3); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into account values (4, 'C', 5000, 3); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into transaction values (1, 1, 'D', '2014-04-21', 1000); Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into transaction values (2, 3, 'D', '2014-04-21', 10000); Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into transaction values (3, 2, 'W', '2014-04-21', 1000); Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into transaction values (4, 4, 'W', '2014-04-21', 1000); Query OK, 1 row affected (0.03 sec)
+
+8.   Display the records from the table.
+
+mysql> select * from customer;
++-----+---------+
+| cid | cname   |
++-----+---------+
+|   1 | Arun    |
+|   2 | Babu    |
+|   3 | Chithra |
++-----+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from account;
++-----+-------+---------+------+
+| ano | atype | balance | cid |
++-----+-------+---------+------+
+|   1 | S     |   1000 |   1 |
+|   2 | S     |   2000 |   2 |
+|   3 | S     |   1000 |   3 |
+|   4 | C     |   5000 |   3 |
++-----+-------+---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from transaction;
++-----+------+-------+------------+---------+
+| tid | ano  | ttype | adate     | tamount |
++-----+------+-------+------------+---------+
+|   1 |    1 | D    | 2014-04-21 |   1000 |
+|   2 |    3 | D    | 2014-04-21 |  10000 |
+|   3 |    2 | W    | 2014-04-21 |   1000 |
+|   4 |    4 | W    | 2014-04-21 |   1000 |
++-----+------+-------+------------+---------+
+4 rows in set (0.00 sec)
+Servlet – MySQL – Connectivity
+Displaying Customer Information
+
+1.   Open Eclipse
+
+2.   Select the Workspace.
+
+3.   Select File Æ New Æ Other.
+
+4.   Select Dynamic Web Project under Web.
+
+5.   Click Next.
+
+6.   Enter the Project name as Banking.
+
+7.   Choose Target runtime as Apache Tomcat v7.0.
+
+8.   Click Next.
+
+9.   Click Next.
+
+10. Click Finish.
+
+11. Click Yes for Open Associated Perspective?
+
+12. Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+13. Right Click Æ New Æ HTML File.
+
+14. Enter the File name as CustomerInfo.
+
+15. Click Next.
+
+16. Click Finish.
+
+17. Change the title as Customer Info.
+
+18. Enter the following code inside the body tag:
+
+<form method="post" action="CustomerInfo">
+<center>
+<h2>Customer Info</h2>
+</center>
+<hr>
+Enter the Customer Id.
+<input type="text" name="cid">
+<input type="submit" value="Get Details">
+</form>
+19. Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+20. Right Click Æ New Æ Servlet.
+
+21. Enter the Class name as CustomerInfo.
+
+22. Click Next.
+
+23. Click Next.
+
+24. Uncheck the Constructors from superclass option.
+
+25. Uncheck the doGet option.
+
+26. Click Finish.
+
+27. Enter the following code above the doPost method:
+
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+28. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'Connection'(java.sql) for the Connection.
+Import 'PreparedStatement'(java.sql) for the PreparedStatement.
+Import 'ResultSet'(java.sql) for the ResultSet.
+
+29. Enter the following code inside the doPost method:
+
+response.setContentType("text/html"); PrintWriter out = response.getWriter();
+
+30. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'PrintWriter'(java.io) for the PrintWriter.
+31. Create a try...catch block inside the doPost method:
+
+try
+{
+}
+catch(Exception e)
+{
+out.println(e);
+}
+32. Enter the following statements inside the try block:
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/banking";
+conn = DriverManager.getConnection(URL, "root", "admin");
+
+33. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'DriverManager'(java.sql) for the DriverManager.
+34. Select the file mysql-connector-java-5.1.29-bin.jar from your hard disk and press Ctrl+C to copy.
+
+35. Select Banking in the Package Explorer.
+
+36. Select WebContent Æ WEB-INF Æ lib.
+
+37. Press Ctrl+V to paste.
+
+38. Continue entering the following statements inside the try block:
+
+ps = conn.prepareStatement("select * from customer where cid = ?"); String cid = request.getParameter("cid");
+ps.setString(1, cid);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Customer Info</h3></center>");
+out.println("<hr>");
+out.println("Customer Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+39. Right Click inside the Code Window of CustomerInfo.html.
+
+40. Select Run As Æ Run on Server.
+
+41. Select the Tomcat v7.0 Server at localhost.
+
+42. Click Next.
+
+43. Click Finish.
+
+44. It will open a browser window.
+
+45. Enter the Customer Id. and click Get Details.
+46. The records will be displayed in browser window.
+
+47. The full source code for CustomerInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Customer Info</title>
+</head>
+<body>
+<form method="post" action="IndCustomerInfo">
+<center>
+<h2>Customer Info</h2>
+</center>
+<hr>
+Enter the Customer Id.
+<input type="text" name="cid">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+
+48. The full source code for CustomerInfo.java is:
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+* Servlet implementation class IndCustomerInfo
+*/
+@WebServlet("/IndCustomerInfo")
+public class IndCustomerInfo extends HttpServlet {
+private static final long serialVersionUID = 1L;
+
+/**
+* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+response)
+*/
+Connection conn = null;
+PreparedStatement ps = null; ResultSet rs = null;
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+// TODO Auto-generated method stub
+response.setContentType("text/html"); PrintWriter out = response.getWriter();
+try
+{
+
+
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/banking";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select * from customer where cid = ?"); String cid = request.getParameter("cid");
+ps.setString(1, cid);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Customer Info</h3></center>");
+out.println("<hr>");
+out.println("Customer Id. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Name :" + rs.getString(2));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+}
+}
+Servlet – MySQL – Connectivity
+Displaying Account Information
+
+
+1.   Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as AccountInfo.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Account Info.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="AccountInfo">
+<center>
+<h2>Account Info</h2>
+</center>
+<hr>
+Enter the Account No.
+<input type="text" name="ano">
+<input type="submit" value="Get Details">
+</form>
+
+8.   Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ Servlet.
+
+10. Enter the Class name as AccountInfo.
+
+11. Click Next.
+
+12. Click Next.
+
+13. Uncheck the Constructors from superclass option.
+
+14. Uncheck the doGet option.
+
+15. Click Finish.
+
+16. Enter the following code above the doPost method:
+
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+
+17. Remove the warnings by click into the x mark in the left hand side and choose the following options:
+
+Import 'Connection'(java.sql) for the Connection.
+Import 'PreparedStatement'(java.sql) for the PreparedStatement. Import 'ResultSet'(java.sql) for the ResultSet.
+
+18. Simply copy the code available in the doPost() method of CustomerInfo.java and paste inside the doPost() method of AccountInfo.java.
+
+19. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'PrintWriter'(java.io) for the PrintWriter.
+20. Do the following modifications in the code:
+
+
+ps = conn.prepareStatement("select a.ano, a.atype, a.balance, a.cid, c.cname from account a, customer c where a.cid = ?");
+String ano = request.getParameter("ano");
+ps.setString(1, ano);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Account Info</h3></center>");
+out.println("<hr>");
+out.println("Account No. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Type :" + rs.getString(2));
+out.println("<br>");
+out.println("Balance :" + rs.getInt(3));
+out.println("<br>");
+out.println("Customer Id. :" + rs.getInt(4));
+out.println("<br>");
+out.println("Name :" + rs.getString(5));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+
+21. Right Click inside the Code Window of MemberInfo.html.
+
+22. Select Run As Æ Run on Server.
+
+23. Select the Tomcat v7.0 Server at localhost.
+
+24. Click Next.
+
+25. Click Finish.
+
+26. It will open a browser window.
+27. Enter the Account No. and click Get Details.
+
+28. The records will be displayed in browser window.
+
+29. The full source code for AccountInfo.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Account Info</title>
+</head>
+<body>
+<form method="post" action="AccountInfo">
+<center>
+<h2>Account Info</h2>
+</center>
+<hr>
+Enter the Account No.
+<input type="text" name="ano">
+<input type="submit" value="Get Details">
+</form>
+</body>
+</html>
+
+30. The full source code for AccountInfo.java is:
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+* Servlet implementation class AccountInfo
+*/
+@WebServlet("/AccountInfo")
+public class AccountInfo extends HttpServlet {
+private static final long serialVersionUID = 1L;
+Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
+/**
+* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+response)
+*/
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+// TODO Auto-generated method stub
+response.setContentType("text/html"); PrintWriter out = response.getWriter();
+try
+{
+
+
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/banking";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("select a.ano, a.atype, a.balance, a.cid, c.cname from account a, customer c where a.cid = ?");
+String ano = request.getParameter("ano");
+ps.setString(1, ano);
+rs = ps.executeQuery();
+if(rs.next())
+{
+out.println("<center><h3>Account Info</h3></center>");
+out.println("<hr>");
+out.println("Account No. :" + rs.getInt(1));
+out.println("<br>");
+out.println("Type :" + rs.getString(2));
+out.println("<br>");
+out.println("Balance :" + rs.getInt(3));
+out.println("<br>");
+out.println("Customer Id. :" + rs.getInt(4));
+out.println("<br>");
+out.println("Name :" + rs.getString(5));
+out.println("<br>");
+}
+rs.close(); ps.close(); conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+}
+}
+Servlet – MySQL – Connectivity
+Inserting Customer Information
+
+
+1.   Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as CustomerInfoAdd.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Customer Info - Add.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="CustomerInfoAdd">
+<center>
+<h2>Customer Info - Add</h2>
+</center>
+<hr>
+Customer Id.
+<input type="text" name="cid">
+<br> Name
+<input type="text" name="cname">
+<br>
+<input type="submit" value="Add Details">
+</form>
+
+8.   Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ Servlet.
+
+10. Enter the Class name as CustomerInfoAdd.
+
+11. Click Next.
+
+12. Click Next.
+
+13. Uncheck the Constructors from superclass option.
+
+14. Uncheck the doGet option.
+
+15. Click Finish.
+16. Enter the following code above the doPost method:
+
+Connection conn = null; PreparedStatement ps = null;
+17. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'Connection'(java.sql) for the Connection.
+Import 'PreparedStatement'(java.sql) for the PreparedStatement.
+
+18. Enter the following code inside the doPost method:
+
+response.setContentType("text/html"); PrintWriter out = response.getWriter();
+
+19. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'PrintWriter'(java.io) for the PrintWriter.
+20. Create a try...catch block inside the doPost method:
+
+try
+{
+}
+catch(Exception e)
+{
+out.println(e);
+}
+
+21. Enter the following statements inside the try block:
+
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/banking";
+conn = DriverManager.getConnection(URL, "root", "admin");
+
+22. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'DriverManager'(java.sql) for the DriverManager.
+23. Continue entering the following statements inside the try block:
+
+
+ps = conn.prepareStatement("insert customer values (?, ?)"); String cid = request.getParameter("cid");
+String cname = request.getParameter("cname");
+ps.setString(1, cid);
+ps.setString(2, cname);
+ps.executeUpdate();
+out.println("<center><h3>Customer Details Added</h3></center>");
+ps.close();
+conn.close();
+
+24. Right Click inside the Code Window of CustomerInfoAdd.html.
+
+25. Select Run As Æ Run on Server.
+
+26. Select the Tomcat v7.0 Server at localhost.
+
+27. Click Next.
+
+28. Click Finish.
+
+29. It will open a browser window.
+
+30. Enter the Customer Id., name and click Add Details.
+
+31. The records inserted in MySQL database.
+
+32. The full source code for CustomerInfoAdd.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Customer Info - Add</title>
+</head>
+<body>
+<form method="post" action="CustomerInfoAdd">
+<center>
+<h2>Customer Info - Add</h2>
+</center>
+<hr>
+Customer Id.
+<input type="text" name="cid">
+<br> Name
+<input type="text" name="cname">
+<br>
+<input type="submit" value="Add Details">
+</form>
+</body>
+</html>
+33. The full source code for CustomerInfoAdd.java is:
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+* Servlet implementation class CustomerInfoAdd
+*/
+@WebServlet("/CustomerInfoAdd")
+public class CustomerInfoAdd extends HttpServlet {
+private static final long serialVersionUID = 1L; Connection conn = null;
+PreparedStatement ps = null;
+
+/**
+* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+response)
+*/
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+// TODO Auto-generated method stub response.setContentType("text/html"); PrintWriter out = response.getWriter(); try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/banking";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("insert customer values (?, ?)"); String cid = request.getParameter("cid");
+String cname = request.getParameter("cname");
+ps.setString(1, cid);
+ps.setString(2, cname);
+ps.executeUpdate();
+out.println("<center><h3>Customer Details Added</h3></center>");
+ps.close();
+conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+}
+}
+Servlet – MySQL – Connectivity
+Inserting Account Information
+
+
+1.   Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+2.   Right Click Æ New Æ HTML File.
+
+3.   Enter the File name as AccountInfoAdd.
+
+4.   Click Next.
+
+5.   Click Finish.
+
+6.   Change the title as Account Info - Add.
+
+7.   Enter the following code inside the body tag:
+
+<form method="post" action="AccountInfoAdd">
+<center>
+<h2>Account Info - Add</h2>
+</center>
+<hr>
+Account No.
+<input type="text" name="ano">
+<br> Type
+<input type="text" name="atype">
+<br>
+Balance
+<input type="text" name="balance">
+<br>
+Customer id.
+<input type="text" name="cid">
+<br>
+<input type="submit" value="Add Details">
+</form>
+
+8.   Select Banking Project in the Package Explorer (available in the left hand side of the window).
+
+9.   Right Click Æ New Æ Servlet.
+
+10. Enter the Class name as AccountInfoAdd.
+
+11. Click Next.
+
+12. Click Next.
+
+13. Uncheck the Constructors from superclass option.
+
+14. Uncheck the doGet option.
+
+15. Click Finish.
+
+16. Enter the following code above the doPost method:
+
+Connection conn = null; PreparedStatement ps = null;
+17. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'Connection'(java.sql) for the Connection.
+Import 'PreparedStatement'(java.sql) for the PreparedStatement.
+
+18. Simply copy the code available in the doPost() method of CustomerInfoAdd.java and paste inside the doPost() method of AccountInfoAdd.java.
+
+19. Remove the warnings by click into the x mark in the left hand side and choose the following options: Import 'PrintWriter'(java.io) for the PrintWriter.
+20. Do the following modifications in the code:
+
+
+ps = conn.prepareStatement("insert into account values (?, ?, ?, ?)"); String ano = request.getParameter("ano");
+String atype = request.getParameter("atype"); String balance = request.getParameter("balance"); String cid = request.getParameter("cid"); ps.setString(1, ano);
+ps.setString(2, atype); ps.setString(3, balance); ps.setString(4, cid); ps.executeUpdate();
+out.println("<center><h3>Account Details Added</h3></center>");
+ps.close();
+conn.close();
+
+
+21. Right Click inside the Code Window of AccountInfoAdd.html.
+
+22. Select Run As Æ Run on Server.
+
+23. Select the Tomcat v7.0 Server at localhost.
+
+24. Click Next.
+
+25. Click Finish.
+
+26. It will open a browser window.
+
+27. Enter the Account No., type, balance, Customer Id. and click Add Details.
+28. The records inserted in MySQL database.
+
+29. The full source code for AccountInfoAdd.html is:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Account Info - Add</title>
+</head>
+<body>
+<form method="post" action="AccountInfoAdd">
+<center>
+<h2>Account Info - Add</h2>
+</center>
+<hr>
+Account No.
+<input type="text" name="ano">
+<br> Type
+<input type="text" name="atype">
+<br>
+Balance
+<input type="text" name="balance">
+<br>
+Customer id.
+<input type="text" name="cid">
+<br>
+<input type="submit" value="Add Details">
+</form>
+</body>
+</html>
+
+30. The full source code for AccountInfoAdd.java is:
+
+import java.io.IOException; import java.io.PrintWriter; import java.sql.Connection; import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException; import javax.servlet.annotation.WebServlet; import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+* Servlet implementation class AccountInfoAdd
+*/
+@WebServlet("/AccountInfoAdd")
+public class AccountInfoAdd extends HttpServlet {
+private static final long serialVersionUID = 1L; Connection conn = null;
+PreparedStatement ps = null;
+/**
+* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+response)
+*/
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+// TODO Auto-generated method stub response.setContentType("text/html"); PrintWriter out = response.getWriter(); try
+{
+Class.forName("com.mysql.jdbc.Driver");
+String URL = "jdbc:mysql://localhost:3306/banking";
+conn = DriverManager.getConnection(URL, "root", "admin");
+ps = conn.prepareStatement("insert into account values (?,?,?,?)"); String ano = request.getParameter("ano");
+String atype = request.getParameter("atype"); String balance = request.getParameter("balance"); String cid = request.getParameter("cid"); ps.setString(1, ano);
+ps.setString(2, atype); ps.setString(3, balance); ps.setString(4, cid); ps.executeUpdate();
+out.println("<center><h3>Account Details Added</h3></center>");
+ps.close();
+conn.close();
+}
+catch(Exception e)
+{
+out.println(e);
+}
+}
+}
+
