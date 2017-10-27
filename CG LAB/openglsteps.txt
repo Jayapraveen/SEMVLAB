@@ -1,0 +1,70 @@
+OpenGL to Work with Visual C++
+Installation 
+1. Install Visual C++ 2008 Express Edition  (To support OpenGL).
+2. Copy all the .h files into the C:\Program Files\Microsoft SDKs\Windows\v6.1\Include\GL folder. 
+Header Files (.h files) :  Gl.h,  glu.h, glut.h, freeglut.h,  freeglut_ext.h , freeglut_std.h 
+3. Copy all the .lib files into the C:\Program Files\Microsoft SDKs\Windows\v6.1\Lib folder.
+Library files (.lib files) :   opengl32.lib, glut32.lib,  glu32.lib
+4. Copy all the .dll files into the C:\Windows\system32 folder. 
+Dynamic Link Library Files (.dll) :   freeglut.dll , glut32.dll
+
+Working with Console Application Program in OpenGL
+
+1. Creating a Project
+
+1.	Start Visual C++ and Under the File menu select New → Project (Ctrl+Shift+N).
+2.	Select project types as Win32 and Win32 Console Application.
+3.	Give a User name for the Project.
+4.	Add a GLUT program to the project in the window.
+
+2. Linking OpenGL Libraries
+
+1.	Under the Project menu select Project Properties (Alt+F7) at the bottom.
+2.	Select Configuration Properties → Select “C/C++” → “Preprocessor” → In preprocessor definitions additionally include the path where gl/glut.h is present.
+Example : C:\Program Files\Microsoft \ SDKs \Windows \v6.0A \Include
+3.	Select "Linker" folder and click "Input" .
+4.	Select All Configurations from the Configuration drop-down box at the top of the dialog. This ensures you are changing the settings for both the Debug and Release configurations.
+5.	Select "Additional Dependencies" and type the following contents: 
+opengl32.lib   glut32.lib   glu32.lib
+3.  Compiling the Application
+
+Choose "Build" from the menu options.
+Select "Build filename".
+
+4. Run the Application
+
+Choose "Debug" from the menu options.
+Select "Start without Debugging".
+
+6.	Save the Project 
+
+	Select “File Menu” → select Save all   (Ctrl+Shift+S).
+Save all the documents before quitting.
+
+Working with Windows Application Program in OpenGL
+1. Creating a Project
+
+1.	Start Visual C++ and Under the File menu select New → Project (Ctrl+Shift+N).
+2.	Select Win32 Project, enter a Username, and click OK. 
+3.	In the Wizard click Next, then in Additional options check the box of Empty Project, and click Finish.
+4.	Under the Project menu select Add New Item (Ctrl+Shift+A). 
+5.	Select C++ File (.cpp), enter a Name, and click OK.
+6.	Add a GLUT program to the project in the window.
+
+2. Link to the OpenGL libraries:
+1.	Under the Project menu select Project Properties (Alt+F7) at the bottom. 
+2.	Select Configuration Properties → Linker → Input from the navigation panel on the left. 
+3.	Select All Configurations from the Configuration drop-down box at the top of the dialog. 
+4.	Type “opengl32.lib  glut32.lib  glu32.lib” in Additional Dependencies and click OK.
+1.	Compiling the Application
+Choose "Build" from the menu options.
+Select "Build filename".
+
+2.	Run the Application
+Choose "Debug" from the menu options.
+Select "Start Without Debugging".
+
+5. Save the Project 
+	Select “File Menu” → select Save all   (Ctrl+Shift+S).
+Save all the documents before quitting.
+
